@@ -1,5 +1,7 @@
 # 🚓 Painel de Indicadores Criminais - CPA/M-4
 
+🔗 **Acesse o painel ao vivo aqui:** [Indicadores Criminais CPA/M-4](https://indicadores-criminais-m4.onrender.com/#painel-de-indicadores-criminais-cpa-m-4)
+
 Este projeto é um painel interativo (dashboard) desenvolvido em **Python** e **Streamlit**, focado na extração, tratamento e visualização de dados de segurança pública das delegacias subordinadas ao Comando de Policiamento de Área Metropolitana 4 (CPA/M-4), no estado de São Paulo.
 
 ## 🎯 Objetivo
