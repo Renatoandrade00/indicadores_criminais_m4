@@ -1,6 +1,5 @@
 import pandas as pd
 import os
-import glob
 import re
 
 # Constantes de filtro
@@ -8,6 +7,26 @@ DPS_CPAM4 = [
     "022 DP", "024 DP", "032 DP", "050 DP", "059 DP", "062 DP", 
     "063 DP", "064 DP", "065 DP", "067 DP", "068 DP", "103 DP"
 ]
+
+# Mapeamento DP -> BPM/M e Cia
+# Formato: "DP prefixo": {"BPM": "Nome BPM", "CIA": "Nome Cia"}
+MAP_MILITAR = {
+    "024 DP": {"BPM": "2º BPM/M", "CIA": "1ª Cia - Ponte Rasa"},
+    "063 DP": {"BPM": "2º BPM/M", "CIA": "2ª Cia - Vila Jacuí"},
+    "062 DP": {"BPM": "2º BPM/M", "CIA": "3ª Cia - Ermelino Matarazzo"},
+    
+    "050 DP": {"BPM": "29º BPM/M", "CIA": "1ª Cia - Itaim Paulista"},
+    "022 DP": {"BPM": "29º BPM/M", "CIA": "2ª Cia - São Miguel Paulista"},
+    "059 DP": {"BPM": "29º BPM/M", "CIA": "3ª Cia - Jardim Noemia"},
+    
+    "032 DP": {"BPM": "39º BPM/M", "CIA": "1ª Cia - Itaquera"},
+    "065 DP": {"BPM": "39º BPM/M", "CIA": "2ª Cia - Artur Alvim"},
+    "064 DP": {"BPM": "39º BPM/M", "CIA": "3ª Cia - Cidade A E Carvalho"},
+    
+    "067 DP": {"BPM": "48º BPM/M", "CIA": "1ª Cia - Jardim Robru"},
+    "068 DP": {"BPM": "48º BPM/M", "CIA": "2ª Cia - Lajeado"},
+    "103 DP": {"BPM": "48º BPM/M", "CIA": "3ª Cia - Cohab Itaquera"}
+}
 
 def formatar_indicador(nat):
     """
@@ -31,7 +50,7 @@ def formatar_indicador(nat):
         return "ROUBO DE CARGA"
     # Para homicídio doloso, evitar vítimas ou trânsito
     if "HOMIC" in nat_upper and "DOLOSO" in nat_upper:
-        if "V" not in nat_upper and "TR" not in nat_upper: # Evitar 'N DE VTIMAS' e 'TRNSITO'
+        if "V" not in nat_upper and "TR" not in nat_upper: 
             return "HOMICÍDIO DOLOSO"
         
     return None
@@ -40,12 +59,9 @@ def limpar_dp(dp_str):
     if not isinstance(dp_str, str):
         return None
     
-    # Exemplo: "022 DP - São Miguel Paulista" -> "022 DP - São Miguel Paulista"
-    # Se houver erro de encoding como "So Miguel", o regex a seguir pega os 3 digitos e a sigla
     match = re.search(r'^(\d{3})\s*DP', dp_str, re.IGNORECASE)
     if match:
         dp_number = match.group(1)
-        # Retorna apenas o prefixo "022 DP" para facilitar o filtro e padronização
         return f"{dp_number} DP"
     return None
 
@@ -71,7 +87,6 @@ def run_etl():
         print(f"Diretório {raw_dir} não encontrado. ETL abortado.")
         return
     
-    # Encontrar todos os excels de DADOS CRIMINAIS iterando pelas subpastas
     all_files = []
     for root, dirs, files in os.walk(raw_dir):
         for file in files:
@@ -90,14 +105,12 @@ def run_etl():
         try:
             df = pd.read_excel(f)
             
-            # Localizar coluna de Natureza e DP
             col_nat = None
             if 'NATUREZA2' in df.columns:
                 col_nat = 'NATUREZA2'
             elif 'AGRUPAMENTO_NATUREZA2' in df.columns:
                 col_nat = 'AGRUPAMENTO_NATUREZA2'
             else:
-                # Fallback, tenta achar alguma coluna que tenha 'NATUREZA'
                 for c in df.columns:
                     if 'NATUREZA' in str(c).upper():
                         col_nat = c
@@ -107,19 +120,15 @@ def run_etl():
                 print(f"Ignorando {os.path.basename(f)} - Colunas esperadas não encontradas.")
                 continue
                 
-            # Padronizar nomes
             df['INDICADOR_CLEAN'] = df[col_nat].apply(formatar_indicador)
             df['DP_CLEAN'] = df['DP'].apply(limpar_dp)
             
-            # Filtrar dados (apenas indicadores desejados e DPs do CPA/M-4)
             df_filtered = df.dropna(subset=['INDICADOR_CLEAN', 'DP_CLEAN'])
             df_filtered = df_filtered[df_filtered['DP_CLEAN'].isin(DPS_CPAM4)]
             
             if df_filtered.empty:
                 continue
                 
-            # Descobrir quais são as colunas de Ano (normalmente são inteiros como 2022, 2023)
-            # ou strings que representam anos ('2023', '2024')
             year_cols = []
             for col in df.columns:
                 try:
@@ -131,7 +140,6 @@ def run_etl():
             if not year_cols:
                 continue
                 
-            # Melt para transformar as colunas de ano em linhas
             df_melted = pd.melt(
                 df_filtered, 
                 id_vars=['DP_CLEAN', 'INDICADOR_CLEAN', 'MES'], 
@@ -140,15 +148,17 @@ def run_etl():
                 value_name='QUANTIDADE'
             )
             
-            # Limpar e formatar o resultado
             df_melted['ANO'] = df_melted['ANO'].astype(int)
             df_melted['QUANTIDADE'] = pd.to_numeric(df_melted['QUANTIDADE'], errors='coerce').fillna(0).astype(int)
             df_melted['MES_NOME'] = df_melted['MES'].apply(map_mes)
             df_melted['MES_INT'] = df_melted['MES'].astype(int)
             
-            # Renomear as colunas finais
-            df_final = df_melted[['DP_CLEAN', 'INDICADOR_CLEAN', 'ANO', 'MES_NOME', 'MES_INT', 'QUANTIDADE']].rename(
-                columns={'DP_CLEAN': 'DELEGACIA', 'INDICADOR_CLEAN': 'INDICADOR', 'MES_NOME': 'MES'}
+            # Aplicar o mapeamento Militar
+            df_melted['BATALHAO'] = df_melted['DP_CLEAN'].apply(lambda x: MAP_MILITAR.get(x, {}).get("BPM", "Desconhecido"))
+            df_melted['CIA'] = df_melted['DP_CLEAN'].apply(lambda x: MAP_MILITAR.get(x, {}).get("CIA", "Desconhecido"))
+            
+            df_final = df_melted[['BATALHAO', 'CIA', 'INDICADOR_CLEAN', 'ANO', 'MES_NOME', 'MES_INT', 'QUANTIDADE']].rename(
+                columns={'INDICADOR_CLEAN': 'INDICADOR', 'MES_NOME': 'MES'}
             )
             
             dfs_processados.append(df_final)
@@ -158,41 +168,16 @@ def run_etl():
             print(f"Erro ao processar {f}: {e}")
 
     if dfs_processados:
-        # Concatenar todos os resultados
         df_consolidado = pd.concat(dfs_processados, ignore_index=True)
         
-        # Como arquivos diferentes de anos diferentes podem trazer a mesma coluna de ano 
-        # (ex: a planilha de 2024 traz 2023 e 2024. A de 2023 traz 2022 e 2023), pode haver duplicação.
-        # Vamos agrupar (ou remover duplicatas mantendo o valor máximo/mais recente).
-        # Agruparemos pela chave e manteremos o maior valor (geralmente atualizações consolidam para cima)
         df_consolidado = df_consolidado.groupby(
-            ['DELEGACIA', 'INDICADOR', 'ANO', 'MES', 'MES_INT']
+            ['BATALHAO', 'CIA', 'INDICADOR', 'ANO', 'MES', 'MES_INT']
         )['QUANTIDADE'].max().reset_index()
         
-        # Ordenar por Ano, Mês, Delegacia
-        df_consolidado = df_consolidado.sort_values(['ANO', 'MES_INT', 'DELEGACIA'])
+        df_consolidado = df_consolidado.sort_values(['ANO', 'MES_INT', 'BATALHAO', 'CIA'])
         
-        # Remover a coluna de controle numérico de mês
-        df_consolidado = df_consolidado.drop(columns=['MES_INT'])
-        
-        # Mapeamento do nome completo da DP para exibição bonita (Opcional, já que filtramos)
-        dps_full_name = {
-            "022 DP": "022 DP - São Miguel Paulista",
-            "024 DP": "024 DP - Ponte Rasa",
-            "032 DP": "032 DP - Itaquera",
-            "050 DP": "050 DP - Itaim Paulista",
-            "059 DP": "059 DP - Jardim Noemia",
-            "062 DP": "062 DP - Ermelino Matarazzo",
-            "063 DP": "063 DP - Vila Jacuí",
-            "064 DP": "064 DP - Cidade A E Carvalho",
-            "065 DP": "065 DP - Artur Alvim",
-            "067 DP": "067 DP - Jardim Robru",
-            "068 DP": "068 DP - Lajeado",
-            "103 DP": "103 DP - Cohab Itaquera"
-        }
-        df_consolidado['DELEGACIA'] = df_consolidado['DELEGACIA'].map(dps_full_name)
-        
-        # Salvar o CSV final
+        # Manter MES_INT para podermos ordenar facilmente e descobrir o mais recente
+        # Salvar o CSV final com MES_INT
         out_path = os.path.join("data", "dados_tratados.csv")
         df_consolidado.to_csv(out_path, index=False, encoding='utf-8')
         print(f"SUCESSO! ETL concluído. Dados consolidados salvos em: {out_path}")
