@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+data/raw_drive/
+.env
+.venv/
+venv/
+env/
+.streamlit/

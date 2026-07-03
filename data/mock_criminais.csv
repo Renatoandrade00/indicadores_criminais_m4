@@ -1,0 +1,865 @@
+DELEGACIA,INDICADOR,ANO,MES,QUANTIDADE
+022 DP - São Miguel Paulista,FURTO OUTROS,2023,Janeiro,38
+022 DP - São Miguel Paulista,FURTO OUTROS,2023,Fevereiro,28
+022 DP - São Miguel Paulista,FURTO OUTROS,2023,Março,14
+022 DP - São Miguel Paulista,FURTO OUTROS,2023,Abril,42
+022 DP - São Miguel Paulista,FURTO OUTROS,2023,Maio,7
+022 DP - São Miguel Paulista,FURTO OUTROS,2023,Junho,20
+022 DP - São Miguel Paulista,FURTO OUTROS,2024,Janeiro,38
+022 DP - São Miguel Paulista,FURTO OUTROS,2024,Fevereiro,18
+022 DP - São Miguel Paulista,FURTO OUTROS,2024,Março,22
+022 DP - São Miguel Paulista,FURTO OUTROS,2024,Abril,10
+022 DP - São Miguel Paulista,FURTO OUTROS,2024,Maio,10
+022 DP - São Miguel Paulista,FURTO OUTROS,2024,Junho,23
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2023,Janeiro,35
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2023,Fevereiro,39
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2023,Março,23
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2023,Abril,2
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2023,Maio,21
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2023,Junho,1
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2024,Janeiro,23
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2024,Fevereiro,43
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2024,Março,29
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2024,Abril,37
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2024,Maio,1
+022 DP - São Miguel Paulista,FURTO VEÍCULO,2024,Junho,20
+022 DP - São Miguel Paulista,ROUBO OUTROS,2023,Janeiro,32
+022 DP - São Miguel Paulista,ROUBO OUTROS,2023,Fevereiro,11
+022 DP - São Miguel Paulista,ROUBO OUTROS,2023,Março,21
+022 DP - São Miguel Paulista,ROUBO OUTROS,2023,Abril,43
+022 DP - São Miguel Paulista,ROUBO OUTROS,2023,Maio,24
+022 DP - São Miguel Paulista,ROUBO OUTROS,2023,Junho,48
+022 DP - São Miguel Paulista,ROUBO OUTROS,2024,Janeiro,26
+022 DP - São Miguel Paulista,ROUBO OUTROS,2024,Fevereiro,41
+022 DP - São Miguel Paulista,ROUBO OUTROS,2024,Março,27
+022 DP - São Miguel Paulista,ROUBO OUTROS,2024,Abril,15
+022 DP - São Miguel Paulista,ROUBO OUTROS,2024,Maio,14
+022 DP - São Miguel Paulista,ROUBO OUTROS,2024,Junho,46
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2023,Janeiro,43
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2023,Fevereiro,2
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2023,Março,36
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2023,Abril,6
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2023,Maio,20
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2023,Junho,8
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2024,Janeiro,38
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2024,Fevereiro,17
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2024,Março,3
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2024,Abril,24
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2024,Maio,13
+022 DP - São Miguel Paulista,ROUBO VEÍCULO,2024,Junho,49
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2023,Janeiro,8
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2023,Fevereiro,25
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2023,Março,1
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2023,Abril,19
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2023,Maio,27
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2023,Junho,46
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2024,Janeiro,6
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2024,Fevereiro,43
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2024,Março,7
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2024,Abril,46
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2024,Maio,34
+022 DP - São Miguel Paulista,ROUBO DE CARGA,2024,Junho,13
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2023,Janeiro,3
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2023,Fevereiro,3
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2023,Março,1
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2023,Abril,4
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2023,Maio,1
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2023,Junho,1
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2024,Janeiro,3
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2024,Fevereiro,3
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2024,Março,4
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2024,Abril,4
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2024,Maio,4
+022 DP - São Miguel Paulista,HOMICÍDIO DOLOSO,2024,Junho,1
+024 DP - Ponte Rasa,FURTO OUTROS,2023,Janeiro,24
+024 DP - Ponte Rasa,FURTO OUTROS,2023,Fevereiro,44
+024 DP - Ponte Rasa,FURTO OUTROS,2023,Março,40
+024 DP - Ponte Rasa,FURTO OUTROS,2023,Abril,28
+024 DP - Ponte Rasa,FURTO OUTROS,2023,Maio,14
+024 DP - Ponte Rasa,FURTO OUTROS,2023,Junho,44
+024 DP - Ponte Rasa,FURTO OUTROS,2024,Janeiro,0
+024 DP - Ponte Rasa,FURTO OUTROS,2024,Fevereiro,24
+024 DP - Ponte Rasa,FURTO OUTROS,2024,Março,6
+024 DP - Ponte Rasa,FURTO OUTROS,2024,Abril,8
+024 DP - Ponte Rasa,FURTO OUTROS,2024,Maio,23
+024 DP - Ponte Rasa,FURTO OUTROS,2024,Junho,0
+024 DP - Ponte Rasa,FURTO VEÍCULO,2023,Janeiro,43
+024 DP - Ponte Rasa,FURTO VEÍCULO,2023,Fevereiro,7
+024 DP - Ponte Rasa,FURTO VEÍCULO,2023,Março,23
+024 DP - Ponte Rasa,FURTO VEÍCULO,2023,Abril,10
+024 DP - Ponte Rasa,FURTO VEÍCULO,2023,Maio,16
+024 DP - Ponte Rasa,FURTO VEÍCULO,2023,Junho,7
+024 DP - Ponte Rasa,FURTO VEÍCULO,2024,Janeiro,34
+024 DP - Ponte Rasa,FURTO VEÍCULO,2024,Fevereiro,34
+024 DP - Ponte Rasa,FURTO VEÍCULO,2024,Março,32
+024 DP - Ponte Rasa,FURTO VEÍCULO,2024,Abril,4
+024 DP - Ponte Rasa,FURTO VEÍCULO,2024,Maio,41
+024 DP - Ponte Rasa,FURTO VEÍCULO,2024,Junho,38
+024 DP - Ponte Rasa,ROUBO OUTROS,2023,Janeiro,40
+024 DP - Ponte Rasa,ROUBO OUTROS,2023,Fevereiro,27
+024 DP - Ponte Rasa,ROUBO OUTROS,2023,Março,6
+024 DP - Ponte Rasa,ROUBO OUTROS,2023,Abril,8
+024 DP - Ponte Rasa,ROUBO OUTROS,2023,Maio,7
+024 DP - Ponte Rasa,ROUBO OUTROS,2023,Junho,11
+024 DP - Ponte Rasa,ROUBO OUTROS,2024,Janeiro,33
+024 DP - Ponte Rasa,ROUBO OUTROS,2024,Fevereiro,32
+024 DP - Ponte Rasa,ROUBO OUTROS,2024,Março,47
+024 DP - Ponte Rasa,ROUBO OUTROS,2024,Abril,22
+024 DP - Ponte Rasa,ROUBO OUTROS,2024,Maio,23
+024 DP - Ponte Rasa,ROUBO OUTROS,2024,Junho,36
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2023,Janeiro,34
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2023,Fevereiro,43
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2023,Março,39
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2023,Abril,21
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2023,Maio,26
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2023,Junho,34
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2024,Janeiro,0
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2024,Fevereiro,34
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2024,Março,36
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2024,Abril,46
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2024,Maio,13
+024 DP - Ponte Rasa,ROUBO VEÍCULO,2024,Junho,2
+024 DP - Ponte Rasa,ROUBO DE CARGA,2023,Janeiro,0
+024 DP - Ponte Rasa,ROUBO DE CARGA,2023,Fevereiro,4
+024 DP - Ponte Rasa,ROUBO DE CARGA,2023,Março,25
+024 DP - Ponte Rasa,ROUBO DE CARGA,2023,Abril,13
+024 DP - Ponte Rasa,ROUBO DE CARGA,2023,Maio,38
+024 DP - Ponte Rasa,ROUBO DE CARGA,2023,Junho,26
+024 DP - Ponte Rasa,ROUBO DE CARGA,2024,Janeiro,8
+024 DP - Ponte Rasa,ROUBO DE CARGA,2024,Fevereiro,14
+024 DP - Ponte Rasa,ROUBO DE CARGA,2024,Março,14
+024 DP - Ponte Rasa,ROUBO DE CARGA,2024,Abril,25
+024 DP - Ponte Rasa,ROUBO DE CARGA,2024,Maio,41
+024 DP - Ponte Rasa,ROUBO DE CARGA,2024,Junho,12
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2023,Janeiro,0
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2023,Fevereiro,3
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2023,Março,4
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2023,Abril,4
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2023,Maio,2
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2023,Junho,3
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2024,Janeiro,2
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2024,Fevereiro,3
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2024,Março,1
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2024,Abril,0
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2024,Maio,3
+024 DP - Ponte Rasa,HOMICÍDIO DOLOSO,2024,Junho,3
+032 DP - Itaquera,FURTO OUTROS,2023,Janeiro,43
+032 DP - Itaquera,FURTO OUTROS,2023,Fevereiro,19
+032 DP - Itaquera,FURTO OUTROS,2023,Março,29
+032 DP - Itaquera,FURTO OUTROS,2023,Abril,10
+032 DP - Itaquera,FURTO OUTROS,2023,Maio,27
+032 DP - Itaquera,FURTO OUTROS,2023,Junho,24
+032 DP - Itaquera,FURTO OUTROS,2024,Janeiro,38
+032 DP - Itaquera,FURTO OUTROS,2024,Fevereiro,32
+032 DP - Itaquera,FURTO OUTROS,2024,Março,0
+032 DP - Itaquera,FURTO OUTROS,2024,Abril,26
+032 DP - Itaquera,FURTO OUTROS,2024,Maio,12
+032 DP - Itaquera,FURTO OUTROS,2024,Junho,40
+032 DP - Itaquera,FURTO VEÍCULO,2023,Janeiro,2
+032 DP - Itaquera,FURTO VEÍCULO,2023,Fevereiro,38
+032 DP - Itaquera,FURTO VEÍCULO,2023,Março,5
+032 DP - Itaquera,FURTO VEÍCULO,2023,Abril,7
+032 DP - Itaquera,FURTO VEÍCULO,2023,Maio,26
+032 DP - Itaquera,FURTO VEÍCULO,2023,Junho,8
+032 DP - Itaquera,FURTO VEÍCULO,2024,Janeiro,36
+032 DP - Itaquera,FURTO VEÍCULO,2024,Fevereiro,32
+032 DP - Itaquera,FURTO VEÍCULO,2024,Março,41
+032 DP - Itaquera,FURTO VEÍCULO,2024,Abril,43
+032 DP - Itaquera,FURTO VEÍCULO,2024,Maio,23
+032 DP - Itaquera,FURTO VEÍCULO,2024,Junho,14
+032 DP - Itaquera,ROUBO OUTROS,2023,Janeiro,31
+032 DP - Itaquera,ROUBO OUTROS,2023,Fevereiro,31
+032 DP - Itaquera,ROUBO OUTROS,2023,Março,23
+032 DP - Itaquera,ROUBO OUTROS,2023,Abril,40
+032 DP - Itaquera,ROUBO OUTROS,2023,Maio,48
+032 DP - Itaquera,ROUBO OUTROS,2023,Junho,48
+032 DP - Itaquera,ROUBO OUTROS,2024,Janeiro,11
+032 DP - Itaquera,ROUBO OUTROS,2024,Fevereiro,38
+032 DP - Itaquera,ROUBO OUTROS,2024,Março,1
+032 DP - Itaquera,ROUBO OUTROS,2024,Abril,2
+032 DP - Itaquera,ROUBO OUTROS,2024,Maio,48
+032 DP - Itaquera,ROUBO OUTROS,2024,Junho,36
+032 DP - Itaquera,ROUBO VEÍCULO,2023,Janeiro,48
+032 DP - Itaquera,ROUBO VEÍCULO,2023,Fevereiro,16
+032 DP - Itaquera,ROUBO VEÍCULO,2023,Março,48
+032 DP - Itaquera,ROUBO VEÍCULO,2023,Abril,1
+032 DP - Itaquera,ROUBO VEÍCULO,2023,Maio,1
+032 DP - Itaquera,ROUBO VEÍCULO,2023,Junho,27
+032 DP - Itaquera,ROUBO VEÍCULO,2024,Janeiro,22
+032 DP - Itaquera,ROUBO VEÍCULO,2024,Fevereiro,36
+032 DP - Itaquera,ROUBO VEÍCULO,2024,Março,31
+032 DP - Itaquera,ROUBO VEÍCULO,2024,Abril,32
+032 DP - Itaquera,ROUBO VEÍCULO,2024,Maio,0
+032 DP - Itaquera,ROUBO VEÍCULO,2024,Junho,18
+032 DP - Itaquera,ROUBO DE CARGA,2023,Janeiro,1
+032 DP - Itaquera,ROUBO DE CARGA,2023,Fevereiro,43
+032 DP - Itaquera,ROUBO DE CARGA,2023,Março,25
+032 DP - Itaquera,ROUBO DE CARGA,2023,Abril,31
+032 DP - Itaquera,ROUBO DE CARGA,2023,Maio,5
+032 DP - Itaquera,ROUBO DE CARGA,2023,Junho,31
+032 DP - Itaquera,ROUBO DE CARGA,2024,Janeiro,3
+032 DP - Itaquera,ROUBO DE CARGA,2024,Fevereiro,10
+032 DP - Itaquera,ROUBO DE CARGA,2024,Março,16
+032 DP - Itaquera,ROUBO DE CARGA,2024,Abril,37
+032 DP - Itaquera,ROUBO DE CARGA,2024,Maio,23
+032 DP - Itaquera,ROUBO DE CARGA,2024,Junho,4
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2023,Janeiro,2
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2023,Fevereiro,0
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2023,Março,3
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2023,Abril,4
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2023,Maio,3
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2023,Junho,2
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2024,Janeiro,2
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2024,Fevereiro,3
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2024,Março,3
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2024,Abril,0
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2024,Maio,1
+032 DP - Itaquera,HOMICÍDIO DOLOSO,2024,Junho,0
+050 DP - Itaim Paulista,FURTO OUTROS,2023,Janeiro,10
+050 DP - Itaim Paulista,FURTO OUTROS,2023,Fevereiro,27
+050 DP - Itaim Paulista,FURTO OUTROS,2023,Março,24
+050 DP - Itaim Paulista,FURTO OUTROS,2023,Abril,49
+050 DP - Itaim Paulista,FURTO OUTROS,2023,Maio,22
+050 DP - Itaim Paulista,FURTO OUTROS,2023,Junho,30
+050 DP - Itaim Paulista,FURTO OUTROS,2024,Janeiro,29
+050 DP - Itaim Paulista,FURTO OUTROS,2024,Fevereiro,41
+050 DP - Itaim Paulista,FURTO OUTROS,2024,Março,34
+050 DP - Itaim Paulista,FURTO OUTROS,2024,Abril,6
+050 DP - Itaim Paulista,FURTO OUTROS,2024,Maio,15
+050 DP - Itaim Paulista,FURTO OUTROS,2024,Junho,25
+050 DP - Itaim Paulista,FURTO VEÍCULO,2023,Janeiro,47
+050 DP - Itaim Paulista,FURTO VEÍCULO,2023,Fevereiro,48
+050 DP - Itaim Paulista,FURTO VEÍCULO,2023,Março,1
+050 DP - Itaim Paulista,FURTO VEÍCULO,2023,Abril,0
+050 DP - Itaim Paulista,FURTO VEÍCULO,2023,Maio,47
+050 DP - Itaim Paulista,FURTO VEÍCULO,2023,Junho,11
+050 DP - Itaim Paulista,FURTO VEÍCULO,2024,Janeiro,4
+050 DP - Itaim Paulista,FURTO VEÍCULO,2024,Fevereiro,36
+050 DP - Itaim Paulista,FURTO VEÍCULO,2024,Março,31
+050 DP - Itaim Paulista,FURTO VEÍCULO,2024,Abril,8
+050 DP - Itaim Paulista,FURTO VEÍCULO,2024,Maio,40
+050 DP - Itaim Paulista,FURTO VEÍCULO,2024,Junho,34
+050 DP - Itaim Paulista,ROUBO OUTROS,2023,Janeiro,18
+050 DP - Itaim Paulista,ROUBO OUTROS,2023,Fevereiro,47
+050 DP - Itaim Paulista,ROUBO OUTROS,2023,Março,15
+050 DP - Itaim Paulista,ROUBO OUTROS,2023,Abril,2
+050 DP - Itaim Paulista,ROUBO OUTROS,2023,Maio,19
+050 DP - Itaim Paulista,ROUBO OUTROS,2023,Junho,23
+050 DP - Itaim Paulista,ROUBO OUTROS,2024,Janeiro,32
+050 DP - Itaim Paulista,ROUBO OUTROS,2024,Fevereiro,23
+050 DP - Itaim Paulista,ROUBO OUTROS,2024,Março,10
+050 DP - Itaim Paulista,ROUBO OUTROS,2024,Abril,48
+050 DP - Itaim Paulista,ROUBO OUTROS,2024,Maio,7
+050 DP - Itaim Paulista,ROUBO OUTROS,2024,Junho,35
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2023,Janeiro,37
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2023,Fevereiro,39
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2023,Março,19
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2023,Abril,34
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2023,Maio,47
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2023,Junho,24
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2024,Janeiro,34
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2024,Fevereiro,24
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2024,Março,28
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2024,Abril,17
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2024,Maio,45
+050 DP - Itaim Paulista,ROUBO VEÍCULO,2024,Junho,17
+050 DP - Itaim Paulista,ROUBO DE CARGA,2023,Janeiro,1
+050 DP - Itaim Paulista,ROUBO DE CARGA,2023,Fevereiro,34
+050 DP - Itaim Paulista,ROUBO DE CARGA,2023,Março,15
+050 DP - Itaim Paulista,ROUBO DE CARGA,2023,Abril,40
+050 DP - Itaim Paulista,ROUBO DE CARGA,2023,Maio,35
+050 DP - Itaim Paulista,ROUBO DE CARGA,2023,Junho,32
+050 DP - Itaim Paulista,ROUBO DE CARGA,2024,Janeiro,3
+050 DP - Itaim Paulista,ROUBO DE CARGA,2024,Fevereiro,32
+050 DP - Itaim Paulista,ROUBO DE CARGA,2024,Março,13
+050 DP - Itaim Paulista,ROUBO DE CARGA,2024,Abril,20
+050 DP - Itaim Paulista,ROUBO DE CARGA,2024,Maio,47
+050 DP - Itaim Paulista,ROUBO DE CARGA,2024,Junho,19
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2023,Janeiro,2
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2023,Fevereiro,0
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2023,Março,3
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2023,Abril,4
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2023,Maio,2
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2023,Junho,1
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2024,Janeiro,0
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2024,Fevereiro,0
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2024,Março,3
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2024,Abril,2
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2024,Maio,2
+050 DP - Itaim Paulista,HOMICÍDIO DOLOSO,2024,Junho,0
+059 DP - Jardim Noemia,FURTO OUTROS,2023,Janeiro,43
+059 DP - Jardim Noemia,FURTO OUTROS,2023,Fevereiro,27
+059 DP - Jardim Noemia,FURTO OUTROS,2023,Março,29
+059 DP - Jardim Noemia,FURTO OUTROS,2023,Abril,28
+059 DP - Jardim Noemia,FURTO OUTROS,2023,Maio,45
+059 DP - Jardim Noemia,FURTO OUTROS,2023,Junho,5
+059 DP - Jardim Noemia,FURTO OUTROS,2024,Janeiro,34
+059 DP - Jardim Noemia,FURTO OUTROS,2024,Fevereiro,40
+059 DP - Jardim Noemia,FURTO OUTROS,2024,Março,36
+059 DP - Jardim Noemia,FURTO OUTROS,2024,Abril,23
+059 DP - Jardim Noemia,FURTO OUTROS,2024,Maio,28
+059 DP - Jardim Noemia,FURTO OUTROS,2024,Junho,48
+059 DP - Jardim Noemia,FURTO VEÍCULO,2023,Janeiro,45
+059 DP - Jardim Noemia,FURTO VEÍCULO,2023,Fevereiro,30
+059 DP - Jardim Noemia,FURTO VEÍCULO,2023,Março,34
+059 DP - Jardim Noemia,FURTO VEÍCULO,2023,Abril,32
+059 DP - Jardim Noemia,FURTO VEÍCULO,2023,Maio,20
+059 DP - Jardim Noemia,FURTO VEÍCULO,2023,Junho,31
+059 DP - Jardim Noemia,FURTO VEÍCULO,2024,Janeiro,22
+059 DP - Jardim Noemia,FURTO VEÍCULO,2024,Fevereiro,32
+059 DP - Jardim Noemia,FURTO VEÍCULO,2024,Março,2
+059 DP - Jardim Noemia,FURTO VEÍCULO,2024,Abril,17
+059 DP - Jardim Noemia,FURTO VEÍCULO,2024,Maio,24
+059 DP - Jardim Noemia,FURTO VEÍCULO,2024,Junho,41
+059 DP - Jardim Noemia,ROUBO OUTROS,2023,Janeiro,30
+059 DP - Jardim Noemia,ROUBO OUTROS,2023,Fevereiro,2
+059 DP - Jardim Noemia,ROUBO OUTROS,2023,Março,39
+059 DP - Jardim Noemia,ROUBO OUTROS,2023,Abril,45
+059 DP - Jardim Noemia,ROUBO OUTROS,2023,Maio,23
+059 DP - Jardim Noemia,ROUBO OUTROS,2023,Junho,49
+059 DP - Jardim Noemia,ROUBO OUTROS,2024,Janeiro,31
+059 DP - Jardim Noemia,ROUBO OUTROS,2024,Fevereiro,46
+059 DP - Jardim Noemia,ROUBO OUTROS,2024,Março,21
+059 DP - Jardim Noemia,ROUBO OUTROS,2024,Abril,22
+059 DP - Jardim Noemia,ROUBO OUTROS,2024,Maio,1
+059 DP - Jardim Noemia,ROUBO OUTROS,2024,Junho,26
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2023,Janeiro,41
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2023,Fevereiro,1
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2023,Março,25
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2023,Abril,16
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2023,Maio,39
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2023,Junho,32
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2024,Janeiro,8
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2024,Fevereiro,42
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2024,Março,47
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2024,Abril,38
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2024,Maio,28
+059 DP - Jardim Noemia,ROUBO VEÍCULO,2024,Junho,41
+059 DP - Jardim Noemia,ROUBO DE CARGA,2023,Janeiro,25
+059 DP - Jardim Noemia,ROUBO DE CARGA,2023,Fevereiro,34
+059 DP - Jardim Noemia,ROUBO DE CARGA,2023,Março,49
+059 DP - Jardim Noemia,ROUBO DE CARGA,2023,Abril,24
+059 DP - Jardim Noemia,ROUBO DE CARGA,2023,Maio,23
+059 DP - Jardim Noemia,ROUBO DE CARGA,2023,Junho,12
+059 DP - Jardim Noemia,ROUBO DE CARGA,2024,Janeiro,6
+059 DP - Jardim Noemia,ROUBO DE CARGA,2024,Fevereiro,35
+059 DP - Jardim Noemia,ROUBO DE CARGA,2024,Março,44
+059 DP - Jardim Noemia,ROUBO DE CARGA,2024,Abril,19
+059 DP - Jardim Noemia,ROUBO DE CARGA,2024,Maio,0
+059 DP - Jardim Noemia,ROUBO DE CARGA,2024,Junho,7
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2023,Janeiro,3
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2023,Fevereiro,3
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2023,Março,1
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2023,Abril,2
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2023,Maio,1
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2023,Junho,1
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2024,Janeiro,0
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2024,Fevereiro,2
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2024,Março,0
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2024,Abril,4
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2024,Maio,3
+059 DP - Jardim Noemia,HOMICÍDIO DOLOSO,2024,Junho,3
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2023,Janeiro,5
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2023,Fevereiro,44
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2023,Março,31
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2023,Abril,29
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2023,Maio,46
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2023,Junho,34
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2024,Janeiro,39
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2024,Fevereiro,15
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2024,Março,12
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2024,Abril,49
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2024,Maio,41
+062 DP - Ermelino Matarazzo,FURTO OUTROS,2024,Junho,29
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2023,Janeiro,18
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2023,Fevereiro,16
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2023,Março,18
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2023,Abril,27
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2023,Maio,25
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2023,Junho,36
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2024,Janeiro,25
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2024,Fevereiro,22
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2024,Março,8
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2024,Abril,11
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2024,Maio,0
+062 DP - Ermelino Matarazzo,FURTO VEÍCULO,2024,Junho,0
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2023,Janeiro,46
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2023,Fevereiro,33
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2023,Março,31
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2023,Abril,47
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2023,Maio,24
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2023,Junho,39
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2024,Janeiro,44
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2024,Fevereiro,0
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2024,Março,15
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2024,Abril,38
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2024,Maio,4
+062 DP - Ermelino Matarazzo,ROUBO OUTROS,2024,Junho,21
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2023,Janeiro,28
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2023,Fevereiro,2
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2023,Março,11
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2023,Abril,25
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2023,Maio,15
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2023,Junho,36
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2024,Janeiro,21
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2024,Fevereiro,28
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2024,Março,13
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2024,Abril,27
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2024,Maio,4
+062 DP - Ermelino Matarazzo,ROUBO VEÍCULO,2024,Junho,46
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2023,Janeiro,48
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2023,Fevereiro,29
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2023,Março,45
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2023,Abril,4
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2023,Maio,11
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2023,Junho,15
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2024,Janeiro,25
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2024,Fevereiro,25
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2024,Março,47
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2024,Abril,20
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2024,Maio,38
+062 DP - Ermelino Matarazzo,ROUBO DE CARGA,2024,Junho,35
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2023,Janeiro,4
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2023,Fevereiro,1
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2023,Março,4
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2023,Abril,1
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2023,Maio,1
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2023,Junho,1
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2024,Janeiro,0
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2024,Fevereiro,4
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2024,Março,1
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2024,Abril,3
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2024,Maio,2
+062 DP - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2024,Junho,3
+063 DP - Vila Jacuí,FURTO OUTROS,2023,Janeiro,49
+063 DP - Vila Jacuí,FURTO OUTROS,2023,Fevereiro,34
+063 DP - Vila Jacuí,FURTO OUTROS,2023,Março,32
+063 DP - Vila Jacuí,FURTO OUTROS,2023,Abril,32
+063 DP - Vila Jacuí,FURTO OUTROS,2023,Maio,42
+063 DP - Vila Jacuí,FURTO OUTROS,2023,Junho,36
+063 DP - Vila Jacuí,FURTO OUTROS,2024,Janeiro,11
+063 DP - Vila Jacuí,FURTO OUTROS,2024,Fevereiro,2
+063 DP - Vila Jacuí,FURTO OUTROS,2024,Março,0
+063 DP - Vila Jacuí,FURTO OUTROS,2024,Abril,32
+063 DP - Vila Jacuí,FURTO OUTROS,2024,Maio,39
+063 DP - Vila Jacuí,FURTO OUTROS,2024,Junho,9
+063 DP - Vila Jacuí,FURTO VEÍCULO,2023,Janeiro,42
+063 DP - Vila Jacuí,FURTO VEÍCULO,2023,Fevereiro,43
+063 DP - Vila Jacuí,FURTO VEÍCULO,2023,Março,28
+063 DP - Vila Jacuí,FURTO VEÍCULO,2023,Abril,12
+063 DP - Vila Jacuí,FURTO VEÍCULO,2023,Maio,11
+063 DP - Vila Jacuí,FURTO VEÍCULO,2023,Junho,30
+063 DP - Vila Jacuí,FURTO VEÍCULO,2024,Janeiro,45
+063 DP - Vila Jacuí,FURTO VEÍCULO,2024,Fevereiro,1
+063 DP - Vila Jacuí,FURTO VEÍCULO,2024,Março,49
+063 DP - Vila Jacuí,FURTO VEÍCULO,2024,Abril,34
+063 DP - Vila Jacuí,FURTO VEÍCULO,2024,Maio,22
+063 DP - Vila Jacuí,FURTO VEÍCULO,2024,Junho,16
+063 DP - Vila Jacuí,ROUBO OUTROS,2023,Janeiro,25
+063 DP - Vila Jacuí,ROUBO OUTROS,2023,Fevereiro,7
+063 DP - Vila Jacuí,ROUBO OUTROS,2023,Março,28
+063 DP - Vila Jacuí,ROUBO OUTROS,2023,Abril,25
+063 DP - Vila Jacuí,ROUBO OUTROS,2023,Maio,9
+063 DP - Vila Jacuí,ROUBO OUTROS,2023,Junho,25
+063 DP - Vila Jacuí,ROUBO OUTROS,2024,Janeiro,33
+063 DP - Vila Jacuí,ROUBO OUTROS,2024,Fevereiro,40
+063 DP - Vila Jacuí,ROUBO OUTROS,2024,Março,6
+063 DP - Vila Jacuí,ROUBO OUTROS,2024,Abril,3
+063 DP - Vila Jacuí,ROUBO OUTROS,2024,Maio,49
+063 DP - Vila Jacuí,ROUBO OUTROS,2024,Junho,44
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2023,Janeiro,10
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2023,Fevereiro,28
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2023,Março,35
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2023,Abril,24
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2023,Maio,20
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2023,Junho,35
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2024,Janeiro,9
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2024,Fevereiro,36
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2024,Março,8
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2024,Abril,23
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2024,Maio,34
+063 DP - Vila Jacuí,ROUBO VEÍCULO,2024,Junho,48
+063 DP - Vila Jacuí,ROUBO DE CARGA,2023,Janeiro,34
+063 DP - Vila Jacuí,ROUBO DE CARGA,2023,Fevereiro,47
+063 DP - Vila Jacuí,ROUBO DE CARGA,2023,Março,35
+063 DP - Vila Jacuí,ROUBO DE CARGA,2023,Abril,17
+063 DP - Vila Jacuí,ROUBO DE CARGA,2023,Maio,48
+063 DP - Vila Jacuí,ROUBO DE CARGA,2023,Junho,38
+063 DP - Vila Jacuí,ROUBO DE CARGA,2024,Janeiro,31
+063 DP - Vila Jacuí,ROUBO DE CARGA,2024,Fevereiro,23
+063 DP - Vila Jacuí,ROUBO DE CARGA,2024,Março,22
+063 DP - Vila Jacuí,ROUBO DE CARGA,2024,Abril,31
+063 DP - Vila Jacuí,ROUBO DE CARGA,2024,Maio,36
+063 DP - Vila Jacuí,ROUBO DE CARGA,2024,Junho,11
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2023,Janeiro,4
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2023,Fevereiro,0
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2023,Março,0
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2023,Abril,0
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2023,Maio,3
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2023,Junho,0
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2024,Janeiro,4
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2024,Fevereiro,0
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2024,Março,3
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2024,Abril,2
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2024,Maio,0
+063 DP - Vila Jacuí,HOMICÍDIO DOLOSO,2024,Junho,3
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2023,Janeiro,13
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2023,Fevereiro,30
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2023,Março,18
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2023,Abril,46
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2023,Maio,15
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2023,Junho,4
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2024,Janeiro,34
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2024,Fevereiro,11
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2024,Março,24
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2024,Abril,20
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2024,Maio,35
+064 DP - Cidade A E Carvalho,FURTO OUTROS,2024,Junho,22
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2023,Janeiro,15
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2023,Fevereiro,38
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2023,Março,44
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2023,Abril,41
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2023,Maio,38
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2023,Junho,13
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2024,Janeiro,30
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2024,Fevereiro,4
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2024,Março,34
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2024,Abril,22
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2024,Maio,28
+064 DP - Cidade A E Carvalho,FURTO VEÍCULO,2024,Junho,42
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2023,Janeiro,10
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2023,Fevereiro,17
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2023,Março,46
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2023,Abril,11
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2023,Maio,8
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2023,Junho,9
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2024,Janeiro,43
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2024,Fevereiro,16
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2024,Março,37
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2024,Abril,6
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2024,Maio,45
+064 DP - Cidade A E Carvalho,ROUBO OUTROS,2024,Junho,12
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2023,Janeiro,39
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2023,Fevereiro,41
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2023,Março,8
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2023,Abril,49
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2023,Maio,26
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2023,Junho,1
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2024,Janeiro,4
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2024,Fevereiro,28
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2024,Março,36
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2024,Abril,37
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2024,Maio,18
+064 DP - Cidade A E Carvalho,ROUBO VEÍCULO,2024,Junho,7
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2023,Janeiro,47
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2023,Fevereiro,44
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2023,Março,0
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2023,Abril,21
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2023,Maio,16
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2023,Junho,6
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2024,Janeiro,24
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2024,Fevereiro,44
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2024,Março,3
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2024,Abril,35
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2024,Maio,5
+064 DP - Cidade A E Carvalho,ROUBO DE CARGA,2024,Junho,30
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2023,Janeiro,4
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2023,Fevereiro,2
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2023,Março,1
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2023,Abril,2
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2023,Maio,4
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2023,Junho,3
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2024,Janeiro,3
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2024,Fevereiro,4
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2024,Março,0
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2024,Abril,4
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2024,Maio,0
+064 DP - Cidade A E Carvalho,HOMICÍDIO DOLOSO,2024,Junho,0
+065 DP - Artur Alvim,FURTO OUTROS,2023,Janeiro,32
+065 DP - Artur Alvim,FURTO OUTROS,2023,Fevereiro,37
+065 DP - Artur Alvim,FURTO OUTROS,2023,Março,5
+065 DP - Artur Alvim,FURTO OUTROS,2023,Abril,43
+065 DP - Artur Alvim,FURTO OUTROS,2023,Maio,44
+065 DP - Artur Alvim,FURTO OUTROS,2023,Junho,31
+065 DP - Artur Alvim,FURTO OUTROS,2024,Janeiro,44
+065 DP - Artur Alvim,FURTO OUTROS,2024,Fevereiro,46
+065 DP - Artur Alvim,FURTO OUTROS,2024,Março,20
+065 DP - Artur Alvim,FURTO OUTROS,2024,Abril,15
+065 DP - Artur Alvim,FURTO OUTROS,2024,Maio,20
+065 DP - Artur Alvim,FURTO OUTROS,2024,Junho,10
+065 DP - Artur Alvim,FURTO VEÍCULO,2023,Janeiro,36
+065 DP - Artur Alvim,FURTO VEÍCULO,2023,Fevereiro,35
+065 DP - Artur Alvim,FURTO VEÍCULO,2023,Março,34
+065 DP - Artur Alvim,FURTO VEÍCULO,2023,Abril,18
+065 DP - Artur Alvim,FURTO VEÍCULO,2023,Maio,19
+065 DP - Artur Alvim,FURTO VEÍCULO,2023,Junho,17
+065 DP - Artur Alvim,FURTO VEÍCULO,2024,Janeiro,46
+065 DP - Artur Alvim,FURTO VEÍCULO,2024,Fevereiro,40
+065 DP - Artur Alvim,FURTO VEÍCULO,2024,Março,48
+065 DP - Artur Alvim,FURTO VEÍCULO,2024,Abril,13
+065 DP - Artur Alvim,FURTO VEÍCULO,2024,Maio,14
+065 DP - Artur Alvim,FURTO VEÍCULO,2024,Junho,30
+065 DP - Artur Alvim,ROUBO OUTROS,2023,Janeiro,0
+065 DP - Artur Alvim,ROUBO OUTROS,2023,Fevereiro,2
+065 DP - Artur Alvim,ROUBO OUTROS,2023,Março,15
+065 DP - Artur Alvim,ROUBO OUTROS,2023,Abril,22
+065 DP - Artur Alvim,ROUBO OUTROS,2023,Maio,10
+065 DP - Artur Alvim,ROUBO OUTROS,2023,Junho,11
+065 DP - Artur Alvim,ROUBO OUTROS,2024,Janeiro,9
+065 DP - Artur Alvim,ROUBO OUTROS,2024,Fevereiro,31
+065 DP - Artur Alvim,ROUBO OUTROS,2024,Março,15
+065 DP - Artur Alvim,ROUBO OUTROS,2024,Abril,7
+065 DP - Artur Alvim,ROUBO OUTROS,2024,Maio,37
+065 DP - Artur Alvim,ROUBO OUTROS,2024,Junho,11
+065 DP - Artur Alvim,ROUBO VEÍCULO,2023,Janeiro,23
+065 DP - Artur Alvim,ROUBO VEÍCULO,2023,Fevereiro,27
+065 DP - Artur Alvim,ROUBO VEÍCULO,2023,Março,7
+065 DP - Artur Alvim,ROUBO VEÍCULO,2023,Abril,27
+065 DP - Artur Alvim,ROUBO VEÍCULO,2023,Maio,35
+065 DP - Artur Alvim,ROUBO VEÍCULO,2023,Junho,25
+065 DP - Artur Alvim,ROUBO VEÍCULO,2024,Janeiro,7
+065 DP - Artur Alvim,ROUBO VEÍCULO,2024,Fevereiro,49
+065 DP - Artur Alvim,ROUBO VEÍCULO,2024,Março,27
+065 DP - Artur Alvim,ROUBO VEÍCULO,2024,Abril,27
+065 DP - Artur Alvim,ROUBO VEÍCULO,2024,Maio,36
+065 DP - Artur Alvim,ROUBO VEÍCULO,2024,Junho,40
+065 DP - Artur Alvim,ROUBO DE CARGA,2023,Janeiro,35
+065 DP - Artur Alvim,ROUBO DE CARGA,2023,Fevereiro,26
+065 DP - Artur Alvim,ROUBO DE CARGA,2023,Março,16
+065 DP - Artur Alvim,ROUBO DE CARGA,2023,Abril,8
+065 DP - Artur Alvim,ROUBO DE CARGA,2023,Maio,32
+065 DP - Artur Alvim,ROUBO DE CARGA,2023,Junho,19
+065 DP - Artur Alvim,ROUBO DE CARGA,2024,Janeiro,12
+065 DP - Artur Alvim,ROUBO DE CARGA,2024,Fevereiro,27
+065 DP - Artur Alvim,ROUBO DE CARGA,2024,Março,47
+065 DP - Artur Alvim,ROUBO DE CARGA,2024,Abril,28
+065 DP - Artur Alvim,ROUBO DE CARGA,2024,Maio,12
+065 DP - Artur Alvim,ROUBO DE CARGA,2024,Junho,45
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2023,Janeiro,4
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2023,Fevereiro,1
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2023,Março,0
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2023,Abril,1
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2023,Maio,1
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2023,Junho,4
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2024,Janeiro,0
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2024,Fevereiro,0
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2024,Março,4
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2024,Abril,0
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2024,Maio,2
+065 DP - Artur Alvim,HOMICÍDIO DOLOSO,2024,Junho,0
+067 DP - Jardim Robru,FURTO OUTROS,2023,Janeiro,12
+067 DP - Jardim Robru,FURTO OUTROS,2023,Fevereiro,32
+067 DP - Jardim Robru,FURTO OUTROS,2023,Março,33
+067 DP - Jardim Robru,FURTO OUTROS,2023,Abril,40
+067 DP - Jardim Robru,FURTO OUTROS,2023,Maio,34
+067 DP - Jardim Robru,FURTO OUTROS,2023,Junho,0
+067 DP - Jardim Robru,FURTO OUTROS,2024,Janeiro,20
+067 DP - Jardim Robru,FURTO OUTROS,2024,Fevereiro,47
+067 DP - Jardim Robru,FURTO OUTROS,2024,Março,5
+067 DP - Jardim Robru,FURTO OUTROS,2024,Abril,27
+067 DP - Jardim Robru,FURTO OUTROS,2024,Maio,16
+067 DP - Jardim Robru,FURTO OUTROS,2024,Junho,4
+067 DP - Jardim Robru,FURTO VEÍCULO,2023,Janeiro,30
+067 DP - Jardim Robru,FURTO VEÍCULO,2023,Fevereiro,4
+067 DP - Jardim Robru,FURTO VEÍCULO,2023,Março,37
+067 DP - Jardim Robru,FURTO VEÍCULO,2023,Abril,2
+067 DP - Jardim Robru,FURTO VEÍCULO,2023,Maio,22
+067 DP - Jardim Robru,FURTO VEÍCULO,2023,Junho,36
+067 DP - Jardim Robru,FURTO VEÍCULO,2024,Janeiro,36
+067 DP - Jardim Robru,FURTO VEÍCULO,2024,Fevereiro,9
+067 DP - Jardim Robru,FURTO VEÍCULO,2024,Março,9
+067 DP - Jardim Robru,FURTO VEÍCULO,2024,Abril,18
+067 DP - Jardim Robru,FURTO VEÍCULO,2024,Maio,16
+067 DP - Jardim Robru,FURTO VEÍCULO,2024,Junho,20
+067 DP - Jardim Robru,ROUBO OUTROS,2023,Janeiro,13
+067 DP - Jardim Robru,ROUBO OUTROS,2023,Fevereiro,8
+067 DP - Jardim Robru,ROUBO OUTROS,2023,Março,45
+067 DP - Jardim Robru,ROUBO OUTROS,2023,Abril,0
+067 DP - Jardim Robru,ROUBO OUTROS,2023,Maio,44
+067 DP - Jardim Robru,ROUBO OUTROS,2023,Junho,12
+067 DP - Jardim Robru,ROUBO OUTROS,2024,Janeiro,3
+067 DP - Jardim Robru,ROUBO OUTROS,2024,Fevereiro,0
+067 DP - Jardim Robru,ROUBO OUTROS,2024,Março,48
+067 DP - Jardim Robru,ROUBO OUTROS,2024,Abril,39
+067 DP - Jardim Robru,ROUBO OUTROS,2024,Maio,31
+067 DP - Jardim Robru,ROUBO OUTROS,2024,Junho,33
+067 DP - Jardim Robru,ROUBO VEÍCULO,2023,Janeiro,27
+067 DP - Jardim Robru,ROUBO VEÍCULO,2023,Fevereiro,30
+067 DP - Jardim Robru,ROUBO VEÍCULO,2023,Março,7
+067 DP - Jardim Robru,ROUBO VEÍCULO,2023,Abril,38
+067 DP - Jardim Robru,ROUBO VEÍCULO,2023,Maio,25
+067 DP - Jardim Robru,ROUBO VEÍCULO,2023,Junho,33
+067 DP - Jardim Robru,ROUBO VEÍCULO,2024,Janeiro,2
+067 DP - Jardim Robru,ROUBO VEÍCULO,2024,Fevereiro,49
+067 DP - Jardim Robru,ROUBO VEÍCULO,2024,Março,11
+067 DP - Jardim Robru,ROUBO VEÍCULO,2024,Abril,0
+067 DP - Jardim Robru,ROUBO VEÍCULO,2024,Maio,43
+067 DP - Jardim Robru,ROUBO VEÍCULO,2024,Junho,4
+067 DP - Jardim Robru,ROUBO DE CARGA,2023,Janeiro,29
+067 DP - Jardim Robru,ROUBO DE CARGA,2023,Fevereiro,29
+067 DP - Jardim Robru,ROUBO DE CARGA,2023,Março,16
+067 DP - Jardim Robru,ROUBO DE CARGA,2023,Abril,47
+067 DP - Jardim Robru,ROUBO DE CARGA,2023,Maio,46
+067 DP - Jardim Robru,ROUBO DE CARGA,2023,Junho,22
+067 DP - Jardim Robru,ROUBO DE CARGA,2024,Janeiro,14
+067 DP - Jardim Robru,ROUBO DE CARGA,2024,Fevereiro,36
+067 DP - Jardim Robru,ROUBO DE CARGA,2024,Março,20
+067 DP - Jardim Robru,ROUBO DE CARGA,2024,Abril,13
+067 DP - Jardim Robru,ROUBO DE CARGA,2024,Maio,1
+067 DP - Jardim Robru,ROUBO DE CARGA,2024,Junho,10
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2023,Janeiro,3
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2023,Fevereiro,1
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2023,Março,1
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2023,Abril,2
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2023,Maio,3
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2023,Junho,0
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2024,Janeiro,3
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2024,Fevereiro,1
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2024,Março,4
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2024,Abril,3
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2024,Maio,0
+067 DP - Jardim Robru,HOMICÍDIO DOLOSO,2024,Junho,0
+068 DP - Lajeado,FURTO OUTROS,2023,Janeiro,19
+068 DP - Lajeado,FURTO OUTROS,2023,Fevereiro,23
+068 DP - Lajeado,FURTO OUTROS,2023,Março,4
+068 DP - Lajeado,FURTO OUTROS,2023,Abril,33
+068 DP - Lajeado,FURTO OUTROS,2023,Maio,5
+068 DP - Lajeado,FURTO OUTROS,2023,Junho,1
+068 DP - Lajeado,FURTO OUTROS,2024,Janeiro,12
+068 DP - Lajeado,FURTO OUTROS,2024,Fevereiro,42
+068 DP - Lajeado,FURTO OUTROS,2024,Março,42
+068 DP - Lajeado,FURTO OUTROS,2024,Abril,47
+068 DP - Lajeado,FURTO OUTROS,2024,Maio,10
+068 DP - Lajeado,FURTO OUTROS,2024,Junho,46
+068 DP - Lajeado,FURTO VEÍCULO,2023,Janeiro,22
+068 DP - Lajeado,FURTO VEÍCULO,2023,Fevereiro,15
+068 DP - Lajeado,FURTO VEÍCULO,2023,Março,30
+068 DP - Lajeado,FURTO VEÍCULO,2023,Abril,10
+068 DP - Lajeado,FURTO VEÍCULO,2023,Maio,15
+068 DP - Lajeado,FURTO VEÍCULO,2023,Junho,7
+068 DP - Lajeado,FURTO VEÍCULO,2024,Janeiro,3
+068 DP - Lajeado,FURTO VEÍCULO,2024,Fevereiro,39
+068 DP - Lajeado,FURTO VEÍCULO,2024,Março,3
+068 DP - Lajeado,FURTO VEÍCULO,2024,Abril,24
+068 DP - Lajeado,FURTO VEÍCULO,2024,Maio,2
+068 DP - Lajeado,FURTO VEÍCULO,2024,Junho,31
+068 DP - Lajeado,ROUBO OUTROS,2023,Janeiro,2
+068 DP - Lajeado,ROUBO OUTROS,2023,Fevereiro,26
+068 DP - Lajeado,ROUBO OUTROS,2023,Março,28
+068 DP - Lajeado,ROUBO OUTROS,2023,Abril,31
+068 DP - Lajeado,ROUBO OUTROS,2023,Maio,49
+068 DP - Lajeado,ROUBO OUTROS,2023,Junho,18
+068 DP - Lajeado,ROUBO OUTROS,2024,Janeiro,20
+068 DP - Lajeado,ROUBO OUTROS,2024,Fevereiro,4
+068 DP - Lajeado,ROUBO OUTROS,2024,Março,17
+068 DP - Lajeado,ROUBO OUTROS,2024,Abril,27
+068 DP - Lajeado,ROUBO OUTROS,2024,Maio,41
+068 DP - Lajeado,ROUBO OUTROS,2024,Junho,21
+068 DP - Lajeado,ROUBO VEÍCULO,2023,Janeiro,20
+068 DP - Lajeado,ROUBO VEÍCULO,2023,Fevereiro,5
+068 DP - Lajeado,ROUBO VEÍCULO,2023,Março,0
+068 DP - Lajeado,ROUBO VEÍCULO,2023,Abril,4
+068 DP - Lajeado,ROUBO VEÍCULO,2023,Maio,40
+068 DP - Lajeado,ROUBO VEÍCULO,2023,Junho,11
+068 DP - Lajeado,ROUBO VEÍCULO,2024,Janeiro,25
+068 DP - Lajeado,ROUBO VEÍCULO,2024,Fevereiro,45
+068 DP - Lajeado,ROUBO VEÍCULO,2024,Março,33
+068 DP - Lajeado,ROUBO VEÍCULO,2024,Abril,48
+068 DP - Lajeado,ROUBO VEÍCULO,2024,Maio,13
+068 DP - Lajeado,ROUBO VEÍCULO,2024,Junho,25
+068 DP - Lajeado,ROUBO DE CARGA,2023,Janeiro,44
+068 DP - Lajeado,ROUBO DE CARGA,2023,Fevereiro,26
+068 DP - Lajeado,ROUBO DE CARGA,2023,Março,8
+068 DP - Lajeado,ROUBO DE CARGA,2023,Abril,25
+068 DP - Lajeado,ROUBO DE CARGA,2023,Maio,46
+068 DP - Lajeado,ROUBO DE CARGA,2023,Junho,21
+068 DP - Lajeado,ROUBO DE CARGA,2024,Janeiro,46
+068 DP - Lajeado,ROUBO DE CARGA,2024,Fevereiro,29
+068 DP - Lajeado,ROUBO DE CARGA,2024,Março,42
+068 DP - Lajeado,ROUBO DE CARGA,2024,Abril,47
+068 DP - Lajeado,ROUBO DE CARGA,2024,Maio,16
+068 DP - Lajeado,ROUBO DE CARGA,2024,Junho,25
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2023,Janeiro,0
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2023,Fevereiro,0
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2023,Março,4
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2023,Abril,1
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2023,Maio,1
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2023,Junho,1
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2024,Janeiro,2
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2024,Fevereiro,2
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2024,Março,2
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2024,Abril,3
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2024,Maio,1
+068 DP - Lajeado,HOMICÍDIO DOLOSO,2024,Junho,2
+103 DP - Cohab Itaquera,FURTO OUTROS,2023,Janeiro,14
+103 DP - Cohab Itaquera,FURTO OUTROS,2023,Fevereiro,24
+103 DP - Cohab Itaquera,FURTO OUTROS,2023,Março,36
+103 DP - Cohab Itaquera,FURTO OUTROS,2023,Abril,27
+103 DP - Cohab Itaquera,FURTO OUTROS,2023,Maio,9
+103 DP - Cohab Itaquera,FURTO OUTROS,2023,Junho,38
+103 DP - Cohab Itaquera,FURTO OUTROS,2024,Janeiro,16
+103 DP - Cohab Itaquera,FURTO OUTROS,2024,Fevereiro,38
+103 DP - Cohab Itaquera,FURTO OUTROS,2024,Março,21
+103 DP - Cohab Itaquera,FURTO OUTROS,2024,Abril,25
+103 DP - Cohab Itaquera,FURTO OUTROS,2024,Maio,43
+103 DP - Cohab Itaquera,FURTO OUTROS,2024,Junho,24
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2023,Janeiro,16
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2023,Fevereiro,12
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2023,Março,19
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2023,Abril,24
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2023,Maio,3
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2023,Junho,9
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2024,Janeiro,2
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2024,Fevereiro,40
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2024,Março,44
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2024,Abril,17
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2024,Maio,46
+103 DP - Cohab Itaquera,FURTO VEÍCULO,2024,Junho,35
+103 DP - Cohab Itaquera,ROUBO OUTROS,2023,Janeiro,46
+103 DP - Cohab Itaquera,ROUBO OUTROS,2023,Fevereiro,21
+103 DP - Cohab Itaquera,ROUBO OUTROS,2023,Março,33
+103 DP - Cohab Itaquera,ROUBO OUTROS,2023,Abril,46
+103 DP - Cohab Itaquera,ROUBO OUTROS,2023,Maio,7
+103 DP - Cohab Itaquera,ROUBO OUTROS,2023,Junho,39
+103 DP - Cohab Itaquera,ROUBO OUTROS,2024,Janeiro,48
+103 DP - Cohab Itaquera,ROUBO OUTROS,2024,Fevereiro,43
+103 DP - Cohab Itaquera,ROUBO OUTROS,2024,Março,18
+103 DP - Cohab Itaquera,ROUBO OUTROS,2024,Abril,41
+103 DP - Cohab Itaquera,ROUBO OUTROS,2024,Maio,40
+103 DP - Cohab Itaquera,ROUBO OUTROS,2024,Junho,36
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2023,Janeiro,5
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2023,Fevereiro,25
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2023,Março,33
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2023,Abril,44
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2023,Maio,5
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2023,Junho,36
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2024,Janeiro,32
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2024,Fevereiro,21
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2024,Março,20
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2024,Abril,5
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2024,Maio,5
+103 DP - Cohab Itaquera,ROUBO VEÍCULO,2024,Junho,47
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2023,Janeiro,3
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2023,Fevereiro,29
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2023,Março,10
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2023,Abril,29
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2023,Maio,30
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2023,Junho,23
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2024,Janeiro,8
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2024,Fevereiro,2
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2024,Março,30
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2024,Abril,39
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2024,Maio,36
+103 DP - Cohab Itaquera,ROUBO DE CARGA,2024,Junho,35
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2023,Janeiro,1
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2023,Fevereiro,3
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2023,Março,3
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2023,Abril,0
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2023,Maio,2
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2023,Junho,2
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2024,Janeiro,1
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2024,Fevereiro,3
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2024,Março,1
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2024,Abril,2
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2024,Maio,0
+103 DP - Cohab Itaquera,HOMICÍDIO DOLOSO,2024,Junho,0
