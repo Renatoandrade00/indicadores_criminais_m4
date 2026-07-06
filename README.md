@@ -71,3 +71,9 @@ A aplicação está configurada para subir nativamente na infraestrutura de web 
 
 ---
 *Desenvolvido focado em Ciência de Dados e Segurança Pública* 🚔
+
+## 🤝 Conecte-se comigo
+
+- **LinkedIn:** [Renato Andrade](www.linkedin.com/in/renato-andrade-a79570299)
+- **DIO:** [Renato Andrade](https://web.dio.me/users/renatoandrade00)
+
