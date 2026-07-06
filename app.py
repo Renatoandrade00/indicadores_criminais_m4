@@ -368,7 +368,7 @@ st.divider()
 
 # --- MODO APRESENTAÇÃO ---
 st.markdown("### 📽️ Apresentação Automática")
-st.markdown("Inicie a apresentação para rodar um carrossel comparativo dos indicadores automaticamente na tela (Ideal para a Sede do CPA).")
+st.markdown("Inicie a apresentação para rodar um carrossel comparativo dos indicadores automaticamente na tela.")
 
 if 'slideshow_active' not in st.session_state:
     st.session_state.slideshow_active = False
