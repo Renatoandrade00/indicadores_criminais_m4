@@ -70,7 +70,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🚓 Painel de Indicadores Criminais - CPA/M-4")
-st.markdown("Análise corporativa de indicadores criminais da área do Comando de Policiamento.")
+st.markdown("Análise dos indicadores criminais da área do Comando de Policiamento.")
 
 # Carregar dados
 df = load_data()
