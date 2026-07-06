@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import time
 from data_loader import load_data
 
 st.set_page_config(page_title="Indicadores Criminais CPA/M-4", layout="wide", page_icon="🚓")
 
-# CSS customizado para aparência de Power BI
+# CSS customizado para aparência de Power BI e Tabelas
 st.markdown("""
     <style>
     .main {
@@ -37,6 +38,33 @@ st.markdown("""
         color: #388e3c;
         font-weight: bold;
         font-size: 14px;
+    }
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        background-color: white;
+        color: black;
+        margin-bottom: 20px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    .custom-table th {
+        background-color: #e0e0e0;
+        border: 1px solid #000;
+        padding: 10px;
+        font-weight: bold;
+    }
+    .custom-table td {
+        border: 1px solid #000;
+        padding: 8px;
+    }
+    .bg-green {
+        background-color: #92d050;
+    }
+    .bg-red {
+        background-color: #ff0000;
+        color: white;
+        font-weight: bold;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -115,6 +143,25 @@ def apply_filters(dataframe, bpm, cias, inds, ano, mes):
 df_periodo1 = apply_filters(df, selected_bpm, selected_cias, selected_indicadores, ano_1, mes_1)
 df_periodo2 = apply_filters(df, selected_bpm, selected_cias, selected_indicadores, ano_2, mes_2)
 
+mes_1_int = df[df['MES'] == mes_1]['MES_INT'].iloc[0] if not df[df['MES'] == mes_1].empty else 1
+mes_2_int = df[df['MES'] == mes_2]['MES_INT'].iloc[0] if not df[df['MES'] == mes_2].empty else 1
+
+def apply_filters_acumulado(dataframe, bpm, cias, inds, ano, mes_max_int):
+    df_f = dataframe.copy()
+    if bpm != "CPA/M-4 (Todos)":
+        df_f = df_f[df_f['BATALHAO'] == bpm]
+    if cias:
+        df_f = df_f[df_f['CIA'].isin(cias)]
+    if inds:
+        df_f = df_f[df_f['INDICADOR'].isin(inds)]
+    if ano:
+        df_f = df_f[df_f['ANO'] == ano]
+    df_f = df_f[df_f['MES_INT'] <= mes_max_int]
+    return df_f
+
+df_acumulado_1 = apply_filters_acumulado(df, selected_bpm, selected_cias, selected_indicadores, ano_1, mes_1_int)
+df_acumulado_2 = apply_filters_acumulado(df, selected_bpm, selected_cias, selected_indicadores, ano_2, mes_2_int)
+
 total_periodo1 = df_periodo1['QUANTIDADE'].sum()
 total_periodo2 = df_periodo2['QUANTIDADE'].sum()
 
@@ -165,7 +212,56 @@ with col3:
 
 st.divider()
 
-# --- GRÁFICOS ---
+# --- TABELAS QUANTITATIVAS ---
+def render_table(df_atual, df_anterior, titulo_atual, titulo_anterior):
+    if df_atual.empty and df_anterior.empty:
+        return "<p>Sem dados</p>"
+    
+    ind_atual = df_atual.groupby("INDICADOR")["QUANTIDADE"].sum()
+    ind_ant = df_anterior.groupby("INDICADOR")["QUANTIDADE"].sum()
+    
+    html = '<table class="custom-table">'
+    html += f'<tr><th>INDICADOR</th><th>{titulo_atual}</th><th>{titulo_anterior}</th><th>DIFERENÇA</th><th>%</th></tr>'
+    
+    for ind in todos_indicadores:
+        if ind not in selected_indicadores:
+            continue
+        v_atual = ind_atual.get(ind, 0)
+        v_ant = ind_ant.get(ind, 0)
+        diff = v_atual - v_ant
+        perc = calculate_variation(v_atual, v_ant)
+        
+        bg_class_diff = "bg-green" if diff <= 0 else "bg-red"
+        bg_class_perc = "bg-green" if perc <= 0 else "bg-red"
+        
+        html += f'<tr>'
+        html += f'<td><b>{ind}</b></td>'
+        html += f'<td>{int(v_atual)}</td>'
+        html += f'<td>{int(v_ant)}</td>'
+        html += f'<td class="{bg_class_diff}">{int(diff)}</td>'
+        html += f'<td class="{bg_class_perc}">{perc:.0f}%</td>'
+        html += f'</tr>'
+    html += '</table>'
+    return html
+
+st.markdown("### Comparativo Quantitativo")
+col_t1, col_t2 = st.columns(2)
+
+with col_t1:
+    st.markdown(f"**Acumulado até {mes_1}**")
+    tit_acum_1 = f"JAN {str(ano_1)[-2:]} A {mes_1[:3].upper()} {str(ano_1)[-2:]}"
+    tit_acum_2 = f"JAN {str(ano_2)[-2:]} A {mes_2[:3].upper()} {str(ano_2)[-2:]}"
+    st.markdown(render_table(df_acumulado_1, df_acumulado_2, tit_acum_1, tit_acum_2), unsafe_allow_html=True)
+
+with col_t2:
+    st.markdown(f"**Mês Específico**")
+    tit_mes_1 = f"{ano_1}<br>{mes_1[:3].upper()}"
+    tit_mes_2 = f"{ano_2}<br>{mes_2[:3].upper()}"
+    st.markdown(render_table(df_periodo1, df_periodo2, tit_mes_1, tit_mes_2), unsafe_allow_html=True)
+
+st.divider()
+
+# --- GRÁFICOS DE BARRA ---
 col_chart1, col_chart2 = st.columns(2)
 
 with col_chart1:
@@ -173,13 +269,11 @@ with col_chart1:
     if not df_periodo1.empty:
         df_cia = df_periodo1.groupby("CIA")["QUANTIDADE"].sum().reset_index()
         df_cia = df_cia.sort_values(by="QUANTIDADE", ascending=True)
-        # text_auto=True insere o valor sobre a barra
         fig_bar = px.bar(
             df_cia, x="QUANTIDADE", y="CIA", orientation='h', 
             color="QUANTIDADE", color_continuous_scale="Blues", text_auto=True
         )
         fig_bar.update_layout(showlegend=False, margin=dict(l=0, r=0, t=30, b=0))
-        # Ajustar a formatação e posição do texto no gráfico
         fig_bar.update_traces(textfont_size=14, textangle=0, textposition="outside", cliponaxis=False)
         st.plotly_chart(fig_bar, use_container_width=True)
     else:
@@ -208,8 +302,8 @@ with col_chart2:
 
 st.divider()
 
-# --- INSIGHTS AUTOMÁTICOS ---
-st.markdown("### 💡 Insights da Operação")
+# --- DIAGNÓSTICO SITUACIONAL ---
+st.markdown("### 💡 Diagnóstico Situacional")
 st.markdown("Análise tática das variações nos indicadores selecionados:")
 
 insights = []
@@ -240,3 +334,90 @@ if not insights:
 
 for ins in insights:
     st.markdown(f"- {ins}")
+
+st.divider()
+
+# --- GRÁFICO DE PIZZA ---
+st.markdown("### 🥧 Distribuição por Batalhão/Companhia")
+col_pie1, col_pie2 = st.columns(2)
+with col_pie1:
+    pie_indicador = st.selectbox("Selecione 1 Indicador para a Pizza", todos_indicadores)
+with col_pie2:
+    pie_visao = st.radio("Nível de Visão (Pizza)", ["CPA (Todos os Batalhões)", "Batalhão Específico (Cias)"])
+    
+if pie_visao == "Batalhão Específico (Cias)":
+    batalhoes_reais = [b for b in df['BATALHAO'].unique() if b != "Desconhecido"]
+    pie_bpm = st.selectbox("Selecione o Batalhão (Pizza)", batalhoes_reais)
+
+df_pie = df_periodo1[df_periodo1['INDICADOR'] == pie_indicador]
+
+if not df_pie.empty:
+    if pie_visao == "CPA (Todos os Batalhões)":
+        df_pie_group = df_pie.groupby("BATALHAO")["QUANTIDADE"].sum().reset_index()
+        fig_pie = px.pie(df_pie_group, values='QUANTIDADE', names='BATALHAO', title=f"Distribuição de {pie_indicador} por Batalhão ({mes_1}/{ano_1})")
+    else:
+        df_pie = df_pie[df_pie['BATALHAO'] == pie_bpm]
+        df_pie_group = df_pie.groupby("CIA")["QUANTIDADE"].sum().reset_index()
+        fig_pie = px.pie(df_pie_group, values='QUANTIDADE', names='CIA', title=f"Distribuição de {pie_indicador} nas Cias do {pie_bpm} ({mes_1}/{ano_1})")
+        
+    st.plotly_chart(fig_pie, use_container_width=True)
+else:
+    st.info("Sem dados para o gráfico de pizza neste período.")
+
+st.divider()
+
+# --- MODO APRESENTAÇÃO ---
+st.markdown("### 📽️ Apresentação Automática")
+st.markdown("Inicie a apresentação para rodar um carrossel comparativo dos indicadores automaticamente na tela (Ideal para a Sede do CPA).")
+
+if 'slideshow_active' not in st.session_state:
+    st.session_state.slideshow_active = False
+
+if st.button("Parar Apresentação" if st.session_state.slideshow_active else "Iniciar Apresentação", type="primary"):
+    st.session_state.slideshow_active = not st.session_state.slideshow_active
+    if st.session_state.slideshow_active:
+        st.rerun()
+
+if st.session_state.slideshow_active:
+    st.warning("Apresentação em andamento... Clique em 'Parar Apresentação' para interromper.")
+    placeholder = st.empty()
+    charts = []
+    
+    # 1. Comparativo CPA (1 indicador por vez)
+    for ind in todos_indicadores:
+        if ind not in selected_indicadores: continue
+        df_cpa_1 = df_periodo1[df_periodo1['INDICADOR'] == ind].groupby("BATALHAO")["QUANTIDADE"].sum().reset_index()
+        df_cpa_2 = df_periodo2[df_periodo2['INDICADOR'] == ind].groupby("BATALHAO")["QUANTIDADE"].sum().reset_index()
+        df_cpa_1['Período'] = f"{mes_1}/{ano_1}"
+        df_cpa_2['Período'] = f"{mes_2}/{ano_2}"
+        df_cpa_comp = pd.concat([df_cpa_1, df_cpa_2])
+        if not df_cpa_comp.empty:
+            fig = px.bar(df_cpa_comp, x="BATALHAO", y="QUANTIDADE", color="Período", barmode='group', text_auto=True, 
+                         title=f"<b>{ind}</b> - Visão CPA (Comparativo de Períodos)", color_discrete_sequence=['#1f77b4', '#ff7f0e'])
+            fig.update_layout(xaxis_title="", yaxis_title="Quantidade")
+            charts.append(fig)
+            
+    # 2. Comparativo Batalhões (1 indicador por vez por batalhão)
+    for bpm in sorted([b for b in df['BATALHAO'].unique() if b != "Desconhecido"]):
+        for ind in todos_indicadores:
+            if ind not in selected_indicadores: continue
+            df_b_1 = df_periodo1[(df_periodo1['INDICADOR'] == ind) & (df_periodo1['BATALHAO'] == bpm)].groupby("CIA")["QUANTIDADE"].sum().reset_index()
+            df_b_2 = df_periodo2[(df_periodo2['INDICADOR'] == ind) & (df_periodo2['BATALHAO'] == bpm)].groupby("CIA")["QUANTIDADE"].sum().reset_index()
+            df_b_1['Período'] = f"{mes_1}/{ano_1}"
+            df_b_2['Período'] = f"{mes_2}/{ano_2}"
+            df_b_comp = pd.concat([df_b_1, df_b_2])
+            if not df_b_comp.empty:
+                fig = px.bar(df_b_comp, x="CIA", y="QUANTIDADE", color="Período", barmode='group', text_auto=True, 
+                             title=f"<b>{ind}</b> - Visão {bpm} (Comparativo de Períodos)", color_discrete_sequence=['#2ca02c', '#d62728'])
+                fig.update_layout(xaxis_title="", yaxis_title="Quantidade")
+                charts.append(fig)
+
+    if charts:
+        for chart in charts:
+            with placeholder.container():
+                st.plotly_chart(chart, use_container_width=True)
+            time.sleep(6) # 6 segundos por slide
+        st.rerun() # Reinicia o ciclo infinito da apresentação
+
+st.markdown("---")
+st.markdown("<p style='text-align: center; color: gray;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
