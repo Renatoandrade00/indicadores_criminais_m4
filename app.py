@@ -69,7 +69,28 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🚓 Painel de Indicadores Criminais - CPA/M-4")
+import base64
+import os
+
+# Função para carregar imagem local no HTML
+def carregar_imagem(caminho):
+    if os.path.exists(caminho):
+        with open(caminho, "rb") as f:
+            return base64.b64encode(f.read()).decode()
+    return None
+
+img_base64 = carregar_imagem("brasao.png")
+
+if img_base64:
+    st.markdown(f"""
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="data:image/png;base64,{img_base64}" width="70">
+            <h1 style="margin: 0;">Painel de Indicadores Criminais - CPA/M-4</h1>
+        </div>
+    """, unsafe_allow_html=True)
+else:
+    st.title("Painel de Indicadores Criminais - CPA/M-4")
+    
 st.markdown("Análise dos indicadores criminais da área do Comando de Policiamento.")
 
 # Carregar dados

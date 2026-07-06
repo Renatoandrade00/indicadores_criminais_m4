@@ -1,4 +1,4 @@
-# 🚓 Painel de Indicadores Criminais - CPA/M-4
+# <img src="brasao.png" width="40" align="absmiddle"> Painel de Indicadores Criminais - CPA/M-4
 
 🔗 **Acesse o painel ao vivo aqui:** [Indicadores Criminais CPA/M-4](https://indicadores-criminais-m4.onrender.com/#painel-de-indicadores-criminais-cpa-m-4)
 
