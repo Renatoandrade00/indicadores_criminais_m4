@@ -380,6 +380,22 @@ if st.button("Parar Apresentação" if st.session_state.slideshow_active else "I
 
 if st.session_state.slideshow_active:
     st.warning("Apresentação em andamento... Clique em 'Parar Apresentação' para interromper.")
+    
+    # Impedir que a tela desligue usando a Wake Lock API do navegador
+    st.components.v1.html("""
+        <script>
+            let wakeLock = null;
+            const requestWakeLock = async () => {
+              try {
+                wakeLock = await navigator.wakeLock.request('screen');
+              } catch (err) {
+                console.log(err);
+              }
+            };
+            requestWakeLock();
+        </script>
+    """, height=0)
+    
     placeholder = st.empty()
     charts = []
     
