@@ -434,27 +434,12 @@ if st.session_state.slideshow_active:
             fig.update_layout(xaxis_title="", yaxis_title="Quantidade")
             charts.append(fig)
             
-    # 2. Comparativo Batalhões (1 indicador por vez por batalhão)
-    for bpm in sorted([b for b in df['BATALHAO'].unique() if b != "Desconhecido"]):
-        for ind in todos_indicadores:
-            if ind not in selected_indicadores: continue
-            df_b_1 = df_periodo1[(df_periodo1['INDICADOR'] == ind) & (df_periodo1['BATALHAO'] == bpm)].groupby("CIA")["QUANTIDADE"].sum().reset_index()
-            df_b_2 = df_periodo2[(df_periodo2['INDICADOR'] == ind) & (df_periodo2['BATALHAO'] == bpm)].groupby("CIA")["QUANTIDADE"].sum().reset_index()
-            df_b_1['Período'] = f"{mes_1}/{ano_1}"
-            df_b_2['Período'] = f"{mes_2}/{ano_2}"
-            df_b_comp = pd.concat([df_b_1, df_b_2])
-            if not df_b_comp.empty:
-                fig = px.bar(df_b_comp, x="CIA", y="QUANTIDADE", color="Período", barmode='group', text_auto=True, 
-                             title=f"<b>{ind}</b> - Visão {bpm} (Comparativo de Períodos)", color_discrete_sequence=['#2ca02c', '#d62728'])
-                fig.update_layout(xaxis_title="", yaxis_title="Quantidade")
-                charts.append(fig)
-
     if charts:
         for chart in charts:
             with placeholder.container():
                 st.plotly_chart(chart, use_container_width=True)
                 st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
-            time.sleep(6) # 6 segundos por slide
+            time.sleep(12) # 12 segundos por slide
             
         # Adiciona o Google Slides no final do carrossel
         with placeholder.container():
@@ -464,7 +449,7 @@ if st.session_state.slideshow_active:
                 scrolling=False
             )
             st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
-        time.sleep(15) # 15 segundos para exibir o slide
+        time.sleep(30) # 30 segundos para exibir o slide
         
         st.rerun() # Reinicia o ciclo infinito da apresentação
 
