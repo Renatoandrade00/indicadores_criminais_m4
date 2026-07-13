@@ -453,7 +453,19 @@ if st.session_state.slideshow_active:
         for chart in charts:
             with placeholder.container():
                 st.plotly_chart(chart, use_container_width=True)
+                st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
             time.sleep(6) # 6 segundos por slide
+            
+        # Adiciona o Google Slides no final do carrossel
+        with placeholder.container():
+            st.components.v1.iframe(
+                "https://docs.google.com/presentation/d/1N8zFSOhrqIfUx3iJctHm7-5vmoLT2s9GmneNejiVz2U/embed?start=true&loop=true&delayms=3000",
+                height=600,
+                scrolling=False
+            )
+            st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
+        time.sleep(15) # 15 segundos para exibir o slide
+        
         st.rerun() # Reinicia o ciclo infinito da apresentação
 
 st.markdown("---")
