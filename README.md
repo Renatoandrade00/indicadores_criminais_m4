@@ -31,12 +31,20 @@ O sistema trata de erros de texto, consolida nomes divergentes e captura os segu
 - ROUBO DE CARGA
 - HOMICÍDIO DOLOSO
 
-## 🚀 Como Funciona o Pipeline (ETL)
+## 🚀 Como Funciona o Pipeline (Automático e ETL)
 
-O projeto possui um fluxo inteligente de dados:
-1. **Extração:** Planilhas brutas baixadas da Secretaria de Segurança Pública são alocadas na pasta `/data/raw_drive`.
-2. **Transformação (`etl.py`):** O script interroga dezenas de tabelas, filtra as linhas relativas às delegacias e naturezas alvo, faz a transposição (melt) dos anos e descarta informações desnecessárias.
-3. **Carregamento (`data_loader.py`):** Utilizando `@st.cache_data`, o painel lê de um arquivo CSV final ultraleve, otimizando o processamento da interface gráfica. **A cada 24 horas**, o cache é invalidado forçando um novo ciclo ETL de forma transparente para manter as atualizações recentes.
+O projeto possui um fluxo inteligente e **100% automatizado** de dados:
+1. **Sincronização (`sync_ssp.py`):** Um workflow configurado no **GitHub Actions** roda a cada 12 horas, consultando a pasta pública da SSP-SP através da API do Google Drive e baixando as planilhas inéditas (usando `gdown`).
+2. **Transformação (`etl.py`):** Ao detectar novos arquivos, o próprio robô aciona o pipeline que interroga as planilhas, filtra as linhas relativas às delegacias alvo, faz a transposição (melt) dos anos, consolida indicadores divergentes e atualiza a base.
+3. **Commit Automático:** O GitHub Actions faz o *commit* e *push* da nova base limpa (`dados_tratados.csv`), disparando um novo deploy em produção no Render de forma transparente.
+4. **Carregamento (`data_loader.py`):** Utilizando `@st.cache_data`, o painel lê da base em cache otimizando drasticamente a performance.
+
+## 📽️ Modo Apresentação (Carrossel)
+
+O painel foi pensado para rodar autonomamente em telões de gabinetes. Ao clicar no botão de iniciar a apresentação:
+- Todos os menus laterais, KPIs fixos, cabeçalho e tabelas são **ocultados**.
+- As margens da página são dinamicamente reduzidas (CSS injetado).
+- A tela faz uma ancoragem (scroll suave) para o topo, exibindo 100% de área focada nos relatórios em formato carrossel.
 
 ## 💻 Instalação e Execução Local
 
