@@ -401,6 +401,20 @@ class DashboardRenderer:
             st.rerun()
             
         if st.session_state.slideshow_active:
+            # Hack JS para forçar a rolagem para o topo da página
+            st.components.v1.html(
+                """
+                <script>
+                    var body = window.parent.document.querySelector(".main");
+                    if (body) {
+                        body.scrollTo(0, 0);
+                    }
+                    window.parent.scrollTo(0, 0);
+                </script>
+                """,
+                height=0
+            )
+            
             st.warning("Apresentação em andamento... Clique em 'Parar Apresentação' para interromper.")
             
             placeholder = st.empty()
