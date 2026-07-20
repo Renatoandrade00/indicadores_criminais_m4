@@ -14,10 +14,10 @@ Este documento descreve a arquitetura, os componentes, o fluxo de dados e as dec
 ### 1.2 Escopo
 
 O sistema abrange:
-- **Ingestão** de planilhas Excel publicadas pela SSP-SP.
+- **Ingestão** automática de planilhas Excel publicadas no Google Drive da SSP-SP via GitHub Actions.
 - **Transformação** (ETL) dos dados brutos em formato analítico normalizado.
 - **Visualização** interativa via dashboard web com KPIs, tabelas comparativas, gráficos e diagnósticos automatizados.
-- **Apresentação** autônoma em modo carrossel para uso em monitores de gabinete.
+- **Apresentação** autônoma em modo carrossel com layout adaptativo (ocultação inteligente de cabeçalhos e menus) para uso em telões.
 
 ### 1.3 Definições e Acrônimos
 
@@ -68,16 +68,18 @@ O projeto segue uma **arquitetura monolítica em camadas**, adequada ao seu esco
 ```mermaid
 graph TD
     subgraph Fontes
-        SSP["SSP-SP (Planilhas Excel)"]
+        SSP["SSP-SP (Google Drive Público)"]
     end
 
     subgraph Armazenamento
         RAW["data/raw_drive/"]
         CSV["data/dados_tratados.csv"]
+        MANIFEST["data/sync_manifest.json"]
     end
 
-    subgraph ETL
-        ETL_SCRIPT["etl.py"]
+    subgraph ETL & Ingestão
+        SYNC["sync_ssp.py (Ingestão)"]
+        ETL_SCRIPT["etl.py (Transformação)"]
         LOADER["data_loader.py"]
     end
 
@@ -88,15 +90,21 @@ graph TD
         RENDER["DashboardRenderer"]
     end
 
-    subgraph Deploy
+    subgraph Infraestrutura
+        GITHUB["GitHub Actions (Cron)"]
         RENDER_CLOUD["Render (PaaS)"]
         BROWSER["Navegador do Usuário"]
     end
 
-    SSP -->|cópia manual| RAW
+    GITHUB -->|dispara a cada 12h| SYNC
+    SSP -->|download (gdown + API)| SYNC
+    SYNC -->|salva .xlsx| RAW
+    SYNC -->|atualiza| MANIFEST
+    SYNC -->|invoca caso haja novo| ETL_SCRIPT
     RAW -->|leitura| ETL_SCRIPT
     ETL_SCRIPT -->|escrita| CSV
-    LOADER -->|invoca| ETL_SCRIPT
+    GITHUB -->|git push| RENDER_CLOUD
+    LOADER -->|invoca fallback| ETL_SCRIPT
     LOADER -->|lê| CSV
     APP -->|importa| LOADER
     APP -->|instancia| DATA
@@ -277,30 +285,49 @@ App.run()
 
 ---
 
+### 3.5 Módulo `sync_ssp.py` — Sincronização de Dados
+
+**Responsabilidade:** Conectar à pasta pública do Google Drive da SSP, detectar novas planilhas, baixar as novidades, executar o ETL e atualizar o repositório automaticamente.
+
+| Componente | Descrição |
+|---|---|
+| `list_drive_files()` | Navega recursivamente pelas subpastas do Google Drive usando `requests` e `Google Drive API v3` (apenas API Key). |
+| `gdown` | Usado para fazer o bypass do limite de vírus do Google e baixar os arquivos brutos. |
+| `sync_manifest.json` | Arquivo que armazena IDs e datas dos arquivos já baixados para garantir que apenas novas planilhas acionem o ETL. |
+| **Gatilho** | Executado via **GitHub Actions** (`.github/workflows/sync_data.yml`) a cada 12 horas. |
+
+---
+
 ## 4. Fluxo de Dados End-to-End
 
 ```mermaid
 sequenceDiagram
-    participant SSP as SSP-SP (Dados Abertos)
-    participant OP as Operador
-    participant FS as Sistema de Arquivos
+    participant GHA as GitHub Actions
+    participant SSP as Google Drive (SSP)
+    participant SYNC as sync_ssp.py
     participant ETL as etl.py
     participant CACHE as st.cache_data
     participant APP as app.py
     participant USER as Navegador
 
-    SSP->>OP: Publica planilhas mensais
-    OP->>FS: Copia .xlsx para data/raw_drive/
+    loop A cada 12 horas
+        GHA->>SYNC: Executa script
+        SYNC->>SSP: Consulta API v3 (lista arquivos)
+        SSP-->>SYNC: Retorna JSON
+        alt Novos arquivos detectados
+            SYNC->>SSP: Faz download (gdown)
+            SYNC->>ETL: run_etl()
+            ETL-->>SYNC: data/dados_tratados.csv
+            GHA->>GHA: git add & commit & push
+        else Nenhum arquivo novo
+            SYNC-->>GHA: Fim (no-op)
+        end
+    end
+
     USER->>APP: Acessa o dashboard
     APP->>CACHE: load_data()
-    alt Cache expirado (> 24h)
-        CACHE->>ETL: run_etl()
-        ETL->>FS: Lê *.xlsx de data/raw_drive/
-        ETL->>ETL: Filtra DPs + Indicadores
-        ETL->>ETL: Melt (transpor anos)
-        ETL->>ETL: Mapeia DP → BPM/Cia
-        ETL->>FS: Grava data/dados_tratados.csv
-        CACHE->>FS: pd.read_csv()
+    alt Cache expirado
+        CACHE->>FS: pd.read_csv("dados_tratados.csv")
         CACHE-->>APP: DataFrame
     else Cache válido
         CACHE-->>APP: DataFrame (do cache)
@@ -404,6 +431,8 @@ graph TD
 │            │  ──────────────────────────────────────             │
 │            │  © Desenvolvido por Renato Andrade                  │
 └────────────┴─────────────────────────────────────────────────────┘
+
+> **Nota sobre o Modo Apresentação:** Quando o modo de apresentação é ativado, todos os componentes acima (sidebar, gráficos, tabelas e cabeçalho) são ocultados e o `padding-top` é reduzido. Um script JavaScript é injetado para forçar a janela para o topo, exibindo apenas o carrossel limpo.
 ```
 
 ### 6.2 Design Visual
@@ -556,10 +585,9 @@ indicadores_criminais_m4/
 | Prioridade | Evolução | Impacto |
 |---|---|---|
 | 🔴 Alta | Testes unitários para `etl.py` e `DashboardData` | Confiabilidade |
-| 🟡 Média | Ingestão automatizada das planilhas SSP (ADR-011) | Operacional |
-| 🟡 Média | Processamento das planilhas de PRODUTIVIDADE (ADR-012) | Funcionalidade |
-| 🟡 Média | Autenticação básica via `st.secrets` (ADR-010) | Segurança |
-| 🟢 Baixa | Migração para DuckDB (ADR-009) | Escalabilidade |
+| 🟡 Média | Processamento das planilhas de PRODUTIVIDADE (ADR-013) | Funcionalidade |
+| 🟡 Média | Autenticação básica via `st.secrets` (ADR-012) | Segurança |
+| 🟢 Baixa | Migração para DuckDB (ADR-011) | Escalabilidade |
 | 🟢 Baixa | Remoção de código legado em `data_loader.py` | Manutenção |
 | 🟢 Baixa | Atualização do `generate_mock_data.py` para schema atual | DX |
 

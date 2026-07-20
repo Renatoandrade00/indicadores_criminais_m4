@@ -266,14 +266,73 @@ As planilhas da SSP são arquivos Excel de 300-500 KB cada. Embora pequenas, sã
 
 ---
 
+## ADR-009 — Ingestão automatizada via GitHub Actions e Google Drive API
+
+| Campo | Valor |
+|---|---|
+| **Status** | ✅ Aceito |
+| **Data** | Julho de 2026 |
+| **Decisores** | Renato Andrade |
+
+### Contexto
+
+Os dados da SSP são publicados mensalmente em uma pasta pública do Google Drive. O processo manual de download e commit das planilhas ou de acionamento do ETL tornava-se repetitivo e sujeito a esquecimento. Era necessário automatizar esse fluxo.
+
+### Opções Avaliadas
+
+| Opção | Prós | Contras |
+|---|---|---|
+| **gdown + Streamlit (on-the-fly)** | Sem infra extra | Lento no carregamento da página do usuário, consome muita banda do servidor Render |
+| **Cron Job no Render** | Usa o mesmo servidor | Free tier dorme (sleep mode), cron falharia |
+| **GitHub Actions (Cron)** | Confiável, gratuito, permite commit do resultado | Requer configurar workflows e secrets |
+
+### Decisão
+
+Foi escolhida a opção de usar **GitHub Actions** agendado para rodar a cada 12 horas.
+O workflow executa um novo script (`sync_ssp.py`) que usa a API do Google Drive para listar arquivos e o `gdown` para baixá-los, registrando os downloads no `sync_manifest.json`. Se houver arquivos novos, ele aciona o ETL e faz um commit automático do `dados_tratados.csv`.
+
+### Consequências
+
+- (+) O dashboard em produção lê apenas o CSV já processado, garantindo alta performance.
+- (+) O processo é "set-and-forget", mantendo os dados atualizados sem intervenção humana.
+- (−) Requer a manutenção de uma API Key do Google Cloud como *secret* no GitHub.
+
+---
+
+## ADR-010 — Layout dinâmico no Modo Apresentação
+
+| Campo | Valor |
+|---|---|
+| **Status** | ✅ Aceito |
+| **Data** | Julho de 2026 |
+| **Decisores** | Renato Andrade |
+
+### Contexto
+
+O painel possui um botão de "Apresentação Automática" para rodar um carrossel em telões. No entanto, o Streamlit preservava o restante da página (KPIs, tabelas, cabeçalho), obrigando o usuário a rolar a tela, o que causava pulos (saltos) indesejados a cada `st.rerun()`.
+
+### Decisão
+
+Implementar um layout adaptativo via Python e JavaScript:
+1. Quando ativado o modo apresentação, **ocultar** todos os gráficos, tabelas e cabeçalho da página (Brasão e Título), focando unicamente no carrossel.
+2. Alterar dinamicamente o CSS (`padding-top`) de `4.5rem` para `1.5rem` para maximizar o espaço útil.
+3. Injetar um pequeno script JavaScript para forçar o scroll da janela para o topo no momento do clique, garantindo o enquadramento perfeito no telão.
+
+### Consequências
+
+- (+) Experiência de apresentação muito mais fluida e limpa ("clean").
+- (+) Resolução definitiva do bug visual do "pulo da tela".
+- (−) O Streamlit não lida muito bem com scroll via Python, exigindo a injeção do JS (`window.parent.scrollTo(0,0)`).
+
+---
+
 ## Registro de Decisões Pendentes
 
 | ID | Tema | Status |
 |---|---|---|
-| ADR-009 | Migração para DuckDB se volume ultrapassar 1 MB consolidado | 🟡 Planejado |
-| ADR-010 | Implementação de autenticação (Streamlit `secrets`) | 🟡 Planejado |
-| ADR-011 | Ingestão automatizada via script de download da SSP | 🟡 Planejado |
-| ADR-012 | Inclusão de indicadores de produtividade policial (planilhas PRODUTIVIDADE) | 🟡 Planejado |
+| ADR-011 | Migração para DuckDB se volume ultrapassar 1 MB consolidado | 🟡 Planejado |
+| ADR-012 | Implementação de autenticação (Streamlit `secrets`) | 🟡 Planejado |
+| ADR-013 | Inclusão de indicadores de produtividade policial (planilhas PRODUTIVIDADE) | 🟡 Planejado |
 
 ---
 
