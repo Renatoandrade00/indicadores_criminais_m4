@@ -478,11 +478,17 @@ class App:
         filters = ui_filter.render()
         
         renderer = DashboardRenderer(data, filters)
-        renderer.render_kpis()
-        renderer.render_tables()
-        renderer.render_bar_charts()
-        renderer.render_diagnosis()
-        renderer.render_pie_charts()
+        
+        if 'slideshow_active' not in st.session_state:
+            st.session_state.slideshow_active = False
+            
+        if not st.session_state.slideshow_active:
+            renderer.render_kpis()
+            renderer.render_tables()
+            renderer.render_bar_charts()
+            renderer.render_diagnosis()
+            renderer.render_pie_charts()
+            
         renderer.render_presentation_mode()
         
         st.markdown("---")
