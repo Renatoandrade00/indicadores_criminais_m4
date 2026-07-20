@@ -4,15 +4,14 @@ import streamlit as st
 
 from etl import run_etl
 
-# st.cache_data recarrega os dados e roda a função a cada 24 horas (ttl=86400)
-@st.cache_data(ttl=86400)
+# st.cache_data recarrega os dados a cada 1 hora (ttl=3600)
+# A atualização das planilhas agora é feita via GitHub Actions a cada 12h.
+@st.cache_data(ttl=3600)
 def load_data():
     """
     Carrega os dados criminais.
-    Atualiza automaticamente executando o ETL diariamente.
     """
-    # Executa o processo de tratamento (ETL) a cada 24 horas 
-    # para garantir que novas planilhas sejam lidas
+    # Executa o processo de tratamento (ETL) local caso desenvolvedor atualize planilhas
     try:
         run_etl()
     except Exception as e:
