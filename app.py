@@ -162,27 +162,29 @@ class DashboardRenderer:
         self.total_periodo2 = self.df_periodo2['QUANTIDADE'].sum() if not self.df_periodo2.empty else 0
 
     @staticmethod
-    def inject_css():
-        st.markdown("""
+    def inject_css(is_presentation=False):
+        padding_top = "1rem" if is_presentation else "3rem"
+        st.markdown(f"""
             <style>
-            .main { background-color: #f0f2f6; }
-            .kpi-card {
+            .main {{ background-color: #f0f2f6; }}
+            .block-container {{ padding-top: {padding_top} !important; padding-bottom: 1rem !important; }}
+            .kpi-card {{
                 background-color: white; padding: 20px; border-radius: 10px;
                 box-shadow: 2px 2px 10px rgba(0,0,0,0.1); text-align: center;
-            }
-            .kpi-title { font-size: 14px; color: #666; margin-bottom: 10px; }
-            .kpi-value { font-size: 28px; font-weight: bold; color: #333; }
-            .kpi-variation-up { color: #d32f2f; font-weight: bold; font-size: 14px; }
-            .kpi-variation-down { color: #388e3c; font-weight: bold; font-size: 14px; }
-            .custom-table {
+            }}
+            .kpi-title {{ font-size: 14px; color: #666; margin-bottom: 10px; }}
+            .kpi-value {{ font-size: 28px; font-weight: bold; color: #333; }}
+            .kpi-variation-up {{ color: #d32f2f; font-weight: bold; font-size: 14px; }}
+            .kpi-variation-down {{ color: #388e3c; font-weight: bold; font-size: 14px; }}
+            .custom-table {{
                 width: 100%; border-collapse: collapse; text-align: center;
                 background-color: white; color: black; margin-bottom: 20px;
                 box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-            }
-            .custom-table th { background-color: #e0e0e0; border: 1px solid #000; padding: 10px; font-weight: bold; }
-            .custom-table td { border: 1px solid #000; padding: 8px; }
-            .bg-green { background-color: #92d050; }
-            .bg-red { background-color: #ff0000; color: white; font-weight: bold; }
+            }}
+            .custom-table th {{ background-color: #e0e0e0; border: 1px solid #000; padding: 10px; font-weight: bold; }}
+            .custom-table td {{ border: 1px solid #000; padding: 8px; }}
+            .bg-green {{ background-color: #92d050; }}
+            .bg-red {{ background-color: #ff0000; color: white; font-weight: bold; }}
             </style>
         """, unsafe_allow_html=True)
 
@@ -465,23 +467,27 @@ class App:
         pass
         
     def run(self):
-        DashboardRenderer.inject_css()
+        if 'slideshow_active' not in st.session_state:
+            st.session_state.slideshow_active = False
+            
+        DashboardRenderer.inject_css(is_presentation=st.session_state.slideshow_active)
         
-        img_base64 = None
-        if os.path.exists("brasao.png"):
-            with open("brasao.png", "rb") as f:
-                img_base64 = base64.b64encode(f.read()).decode()
-        
-        if img_base64:
-            st.markdown(f"""
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="data:image/png;base64,{img_base64}" width="70">
-                    <h1 style="margin: 0;">Painel de Indicadores Criminais - CPA/M-4</h1>
-                </div>
-            """, unsafe_allow_html=True)
-        else:
-            st.title("Painel de Indicadores Criminais - CPA/M-4")
-        st.markdown("Análise dos indicadores criminais da área do Comando de Policiamento.")
+        if not st.session_state.slideshow_active:
+            img_base64 = None
+            if os.path.exists("brasao.png"):
+                with open("brasao.png", "rb") as f:
+                    img_base64 = base64.b64encode(f.read()).decode()
+            
+            if img_base64:
+                st.markdown(f"""
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="data:image/png;base64,{{img_base64}}" width="70">
+                        <h1 style="margin: 0;">Painel de Indicadores Criminais - CPA/M-4</h1>
+                    </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.title("Painel de Indicadores Criminais - CPA/M-4")
+            st.markdown("Análise dos indicadores criminais da área do Comando de Policiamento.")
 
         with st.spinner("Carregando base de dados e executando ETL (isso pode demorar na primeira vez)..."):
             self.df = load_data()
@@ -496,8 +502,6 @@ class App:
         
         renderer = DashboardRenderer(data, filters)
         
-        if 'slideshow_active' not in st.session_state:
-            st.session_state.slideshow_active = False
             
         if not st.session_state.slideshow_active:
             renderer.render_kpis()
