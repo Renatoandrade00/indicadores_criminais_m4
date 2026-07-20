@@ -472,21 +472,22 @@ class App:
             
         DashboardRenderer.inject_css(is_presentation=st.session_state.slideshow_active)
         
-        img_base64 = None
-        if os.path.exists("brasao.png"):
-            with open("brasao.png", "rb") as f:
-                img_base64 = base64.b64encode(f.read()).decode()
-        
-        if img_base64:
-            st.markdown(f"""
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="data:image/png;base64,{{img_base64}}" width="70">
-                    <h1 style="margin: 0;">Painel de Indicadores Criminais - CPA/M-4</h1>
-                </div>
-            """, unsafe_allow_html=True)
-        else:
-            st.title("Painel de Indicadores Criminais - CPA/M-4")
-        st.markdown("Análise dos indicadores criminais da área do Comando de Policiamento.")
+        if not st.session_state.slideshow_active:
+            img_base64 = None
+            if os.path.exists("brasao.png"):
+                with open("brasao.png", "rb") as f:
+                    img_base64 = base64.b64encode(f.read()).decode()
+            
+            if img_base64:
+                st.markdown(f"""
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="data:image/png;base64,{img_base64}" width="70">
+                        <h1 style="margin: 0;">Painel de Indicadores Criminais - CPA/M-4</h1>
+                    </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.title("Painel de Indicadores Criminais - CPA/M-4")
+            st.markdown("Análise dos indicadores criminais da área do Comando de Policiamento.")
 
         with st.spinner("Carregando base de dados e executando ETL (isso pode demorar na primeira vez)..."):
             self.df = load_data()
