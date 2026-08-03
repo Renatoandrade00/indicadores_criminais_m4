@@ -383,20 +383,32 @@ class DashboardRenderer:
         st.markdown("### 🥧 Distribuição por Batalhão/Companhia")
         col_pie1, col_pie2 = st.columns(2)
         with col_pie1:
-            pie_indicador = st.selectbox("Selecione 1 Indicador para a Pizza", self.data.todos_indicadores)
+            pie_indicador = st.selectbox("Selecione 1 Indicador para a Pizza", self.data.todos_indicadores, key="pie_ind")
         with col_pie2:
-            pie_visao = st.radio("Nível de Visão (Pizza)", ["CPA (Todos os Batalhões)", "Batalhão Específico (Cias)"])
+            pie_visao = st.radio("Nível de Visão (Pizza)", ["CPA (Todos os Batalhões)", "Batalhão Específico (Cias)"], key="pie_visao")
             if pie_visao == "Batalhão Específico (Cias)":
-                pie_bpm = st.selectbox("Selecione o Batalhão (Pizza)", [b for b in self.data.get_batalhoes() if b != "CPA/M-4 (Todos)"])
+                pie_bpm = st.selectbox("Selecione o Batalhão (Pizza)", [b for b in self.data.get_batalhoes() if b != "CPA/M-4 (Todos)"], key="pie_bpm")
         
-        df_pie = self.df_periodo1[self.df_periodo1['INDICADOR'] == pie_indicador]
+        # O gráfico de pizza utiliza a base completa do período (ano_1 e mes_1), 
+        # ignorando os filtros laterais de Batalhão, Cia e Indicador.
+        df_pie = self.data.df[
+            (self.data.df['ANO'] == self.f['ano_1']) & 
+            (self.data.df['MES'] == self.f['mes_1']) & 
+            (self.data.df['INDICADOR'] == pie_indicador)
+        ]
+        
         if not df_pie.empty:
             if pie_visao == "CPA (Todos os Batalhões)":
                 df_pie_group = df_pie.groupby("BATALHAO")["QUANTIDADE"].sum().reset_index()
                 df_pie_group["QUANTIDADE"] = pd.to_numeric(df_pie_group["QUANTIDADE"], errors="coerce").fillna(0).astype(int)
                 
-                df_pie_group['Percentual'] = (df_pie_group['QUANTIDADE'] / df_pie_group['QUANTIDADE'].sum() * 100).round(1).astype(str) + '%'
-                df_pie_group['Label'] = df_pie_group['BATALHAO'] + ' - ' + df_pie_group['Percentual']
+                total_qtd = df_pie_group['QUANTIDADE'].sum()
+                if total_qtd > 0:
+                    df_pie_group['Percentual'] = (df_pie_group['QUANTIDADE'] / total_qtd * 100).round(1).astype(str) + '%'
+                    df_pie_group['Label'] = df_pie_group['BATALHAO'] + ' - ' + df_pie_group['Percentual']
+                else:
+                    df_pie_group['Percentual'] = '0%'
+                    df_pie_group['Label'] = df_pie_group['BATALHAO']
                 
                 st.markdown(f"**Distribuição de {pie_indicador} por Batalhão ({self.f['mes_1']}/{self.f['ano_1']})**")
                 
@@ -414,12 +426,17 @@ class DashboardRenderer:
                 chart = (pie + text)
                 st.altair_chart(chart, use_container_width=True)
             else:
-                df_pie = df_pie[df_pie['BATALHAO'] == pie_bpm]
-                df_pie_group = df_pie.groupby("CIA")["QUANTIDADE"].sum().reset_index()
+                df_pie_bpm = df_pie[df_pie['BATALHAO'] == pie_bpm]
+                df_pie_group = df_pie_bpm.groupby("CIA")["QUANTIDADE"].sum().reset_index()
                 df_pie_group["QUANTIDADE"] = pd.to_numeric(df_pie_group["QUANTIDADE"], errors="coerce").fillna(0).astype(int)
                 
-                df_pie_group['Percentual'] = (df_pie_group['QUANTIDADE'] / df_pie_group['QUANTIDADE'].sum() * 100).round(1).astype(str) + '%'
-                df_pie_group['Label'] = df_pie_group['CIA'] + ' - ' + df_pie_group['Percentual']
+                total_qtd = df_pie_group['QUANTIDADE'].sum()
+                if total_qtd > 0:
+                    df_pie_group['Percentual'] = (df_pie_group['QUANTIDADE'] / total_qtd * 100).round(1).astype(str) + '%'
+                    df_pie_group['Label'] = df_pie_group['CIA'] + ' - ' + df_pie_group['Percentual']
+                else:
+                    df_pie_group['Percentual'] = '0%'
+                    df_pie_group['Label'] = df_pie_group['CIA']
                 
                 st.markdown(f"**Distribuição de {pie_indicador} nas Cias do {pie_bpm} ({self.f['mes_1']}/{self.f['ano_1']})**")
                 
