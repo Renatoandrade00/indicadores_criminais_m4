@@ -4,12 +4,20 @@ import streamlit as st
 
 from etl import run_etl
 
-# st.cache_data recarrega os dados a cada 1 hora (ttl=3600)
-# A atualização das planilhas agora é feita via GitHub Actions a cada 12h.
 @st.cache_data(ttl=3600)
+def _read_csv_cached(file_path: str, mtime: float) -> pd.DataFrame:
+    """
+    Função interna com cache vinculada à data de modificação (mtime) do arquivo.
+    Se o arquivo for modificado (ex: novo commit do GitHub Actions), o cache invalida automaticamente.
+    """
+    try:
+        return pd.read_csv(file_path, encoding='utf-8')
+    except UnicodeDecodeError:
+        return pd.read_csv(file_path, encoding='latin1')
+
 def load_data():
     """
-    Carrega os dados criminais consolidados.
+    Carrega os dados criminais consolidados com invalidação automática de cache.
     """
     file_path = os.path.join("data", "dados_tratados.csv")
     
@@ -23,13 +31,8 @@ def load_data():
     if not os.path.exists(file_path):
         return pd.DataFrame()
     
-    # Garantir leitura em UTF-8 para evitar problemas de acentuação (ex: Março)
-    try:
-        df = pd.read_csv(file_path, encoding='utf-8')
-    except UnicodeDecodeError:
-        df = pd.read_csv(file_path, encoding='latin1')
-        
-    return df
+    mtime = os.path.getmtime(file_path)
+    return _read_csv_cached(file_path, mtime)
 
 def filter_data(df, dps, indicadores, ano, meses):
     """
