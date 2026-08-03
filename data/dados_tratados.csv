@@ -2878,6 +2878,7 @@ BATALHAO,CIA,INDICADOR,ANO,MES,MES_INT,QUANTIDADE
 2º BPM/M,3ª Cia - Ermelino Matarazzo,ROUBO VEÍCULO,2025,Junho,6,3
 39º BPM/M,1ª Cia - Itaquera,FURTO OUTROS,2025,Junho,6,107
 39º BPM/M,1ª Cia - Itaquera,FURTO VEÍCULO,2025,Junho,6,27
+39º BPM/M,1ª Cia - Itaquera,HOMICÍDIO DOLOSO,2025,Junho,6,0
 39º BPM/M,1ª Cia - Itaquera,ROUBO DE CARGA,2025,Junho,6,2
 39º BPM/M,1ª Cia - Itaquera,ROUBO OUTROS,2025,Junho,6,54
 39º BPM/M,1ª Cia - Itaquera,ROUBO VEÍCULO,2025,Junho,6,9
@@ -2894,6 +2895,7 @@ BATALHAO,CIA,INDICADOR,ANO,MES,MES_INT,QUANTIDADE
 39º BPM/M,3ª Cia - Cidade A E Carvalho,ROUBO VEÍCULO,2025,Junho,6,4
 48º BPM/M,1ª Cia - Jardim Robru,FURTO OUTROS,2025,Junho,6,93
 48º BPM/M,1ª Cia - Jardim Robru,FURTO VEÍCULO,2025,Junho,6,13
+48º BPM/M,1ª Cia - Jardim Robru,HOMICÍDIO DOLOSO,2025,Junho,6,0
 48º BPM/M,1ª Cia - Jardim Robru,ROUBO DE CARGA,2025,Junho,6,0
 48º BPM/M,1ª Cia - Jardim Robru,ROUBO OUTROS,2025,Junho,6,57
 48º BPM/M,1ª Cia - Jardim Robru,ROUBO VEÍCULO,2025,Junho,6,2
@@ -3587,3 +3589,69 @@ BATALHAO,CIA,INDICADOR,ANO,MES,MES_INT,QUANTIDADE
 48º BPM/M,3ª Cia - Cohab Itaquera,FURTO VEÍCULO,2026,Maio,5,22
 48º BPM/M,3ª Cia - Cohab Itaquera,ROUBO OUTROS,2026,Maio,5,61
 48º BPM/M,3ª Cia - Cohab Itaquera,ROUBO VEÍCULO,2026,Maio,5,5
+29º BPM/M,1ª Cia - Itaim Paulista,FURTO OUTROS,2026,Junho,6,179
+29º BPM/M,1ª Cia - Itaim Paulista,FURTO VEÍCULO,2026,Junho,6,20
+29º BPM/M,1ª Cia - Itaim Paulista,HOMICÍDIO DOLOSO,2026,Junho,6,1
+29º BPM/M,1ª Cia - Itaim Paulista,ROUBO DE CARGA,2026,Junho,6,0
+29º BPM/M,1ª Cia - Itaim Paulista,ROUBO OUTROS,2026,Junho,6,74
+29º BPM/M,1ª Cia - Itaim Paulista,ROUBO VEÍCULO,2026,Junho,6,3
+29º BPM/M,2ª Cia - São Miguel Paulista,FURTO OUTROS,2026,Junho,6,171
+29º BPM/M,2ª Cia - São Miguel Paulista,FURTO VEÍCULO,2026,Junho,6,16
+29º BPM/M,2ª Cia - São Miguel Paulista,HOMICÍDIO DOLOSO,2026,Junho,6,0
+29º BPM/M,2ª Cia - São Miguel Paulista,ROUBO OUTROS,2026,Junho,6,49
+29º BPM/M,2ª Cia - São Miguel Paulista,ROUBO VEÍCULO,2026,Junho,6,1
+29º BPM/M,3ª Cia - Jardim Noemia,FURTO OUTROS,2026,Junho,6,57
+29º BPM/M,3ª Cia - Jardim Noemia,FURTO VEÍCULO,2026,Junho,6,12
+29º BPM/M,3ª Cia - Jardim Noemia,HOMICÍDIO DOLOSO,2026,Junho,6,1
+29º BPM/M,3ª Cia - Jardim Noemia,ROUBO DE CARGA,2026,Junho,6,0
+29º BPM/M,3ª Cia - Jardim Noemia,ROUBO OUTROS,2026,Junho,6,25
+29º BPM/M,3ª Cia - Jardim Noemia,ROUBO VEÍCULO,2026,Junho,6,3
+2º BPM/M,1ª Cia - Ponte Rasa,FURTO OUTROS,2026,Junho,6,175
+2º BPM/M,1ª Cia - Ponte Rasa,FURTO VEÍCULO,2026,Junho,6,69
+2º BPM/M,1ª Cia - Ponte Rasa,ROUBO DE CARGA,2026,Junho,6,1
+2º BPM/M,1ª Cia - Ponte Rasa,ROUBO OUTROS,2026,Junho,6,64
+2º BPM/M,1ª Cia - Ponte Rasa,ROUBO VEÍCULO,2026,Junho,6,6
+2º BPM/M,2ª Cia - Vila Jacuí,FURTO OUTROS,2026,Junho,6,138
+2º BPM/M,2ª Cia - Vila Jacuí,FURTO VEÍCULO,2026,Junho,6,26
+2º BPM/M,2ª Cia - Vila Jacuí,HOMICÍDIO DOLOSO,2026,Junho,6,1
+2º BPM/M,2ª Cia - Vila Jacuí,ROUBO DE CARGA,2026,Junho,6,0
+2º BPM/M,2ª Cia - Vila Jacuí,ROUBO OUTROS,2026,Junho,6,64
+2º BPM/M,2ª Cia - Vila Jacuí,ROUBO VEÍCULO,2026,Junho,6,5
+2º BPM/M,3ª Cia - Ermelino Matarazzo,FURTO OUTROS,2026,Junho,6,113
+2º BPM/M,3ª Cia - Ermelino Matarazzo,FURTO VEÍCULO,2026,Junho,6,19
+2º BPM/M,3ª Cia - Ermelino Matarazzo,HOMICÍDIO DOLOSO,2026,Junho,6,0
+2º BPM/M,3ª Cia - Ermelino Matarazzo,ROUBO OUTROS,2026,Junho,6,37
+2º BPM/M,3ª Cia - Ermelino Matarazzo,ROUBO VEÍCULO,2026,Junho,6,1
+39º BPM/M,1ª Cia - Itaquera,FURTO OUTROS,2026,Junho,6,124
+39º BPM/M,1ª Cia - Itaquera,FURTO VEÍCULO,2026,Junho,6,48
+39º BPM/M,1ª Cia - Itaquera,HOMICÍDIO DOLOSO,2026,Junho,6,1
+39º BPM/M,1ª Cia - Itaquera,ROUBO DE CARGA,2026,Junho,6,0
+39º BPM/M,1ª Cia - Itaquera,ROUBO OUTROS,2026,Junho,6,47
+39º BPM/M,1ª Cia - Itaquera,ROUBO VEÍCULO,2026,Junho,6,3
+39º BPM/M,2ª Cia - Artur Alvim,FURTO OUTROS,2026,Junho,6,292
+39º BPM/M,2ª Cia - Artur Alvim,FURTO VEÍCULO,2026,Junho,6,25
+39º BPM/M,2ª Cia - Artur Alvim,HOMICÍDIO DOLOSO,2026,Junho,6,0
+39º BPM/M,2ª Cia - Artur Alvim,ROUBO DE CARGA,2026,Junho,6,1
+39º BPM/M,2ª Cia - Artur Alvim,ROUBO OUTROS,2026,Junho,6,66
+39º BPM/M,2ª Cia - Artur Alvim,ROUBO VEÍCULO,2026,Junho,6,5
+39º BPM/M,3ª Cia - Cidade A E Carvalho,FURTO OUTROS,2026,Junho,6,121
+39º BPM/M,3ª Cia - Cidade A E Carvalho,FURTO VEÍCULO,2026,Junho,6,48
+39º BPM/M,3ª Cia - Cidade A E Carvalho,ROUBO DE CARGA,2026,Junho,6,0
+39º BPM/M,3ª Cia - Cidade A E Carvalho,ROUBO OUTROS,2026,Junho,6,61
+39º BPM/M,3ª Cia - Cidade A E Carvalho,ROUBO VEÍCULO,2026,Junho,6,4
+48º BPM/M,1ª Cia - Jardim Robru,FURTO OUTROS,2026,Junho,6,89
+48º BPM/M,1ª Cia - Jardim Robru,FURTO VEÍCULO,2026,Junho,6,14
+48º BPM/M,1ª Cia - Jardim Robru,HOMICÍDIO DOLOSO,2026,Junho,6,1
+48º BPM/M,1ª Cia - Jardim Robru,ROUBO DE CARGA,2026,Junho,6,1
+48º BPM/M,1ª Cia - Jardim Robru,ROUBO OUTROS,2026,Junho,6,37
+48º BPM/M,1ª Cia - Jardim Robru,ROUBO VEÍCULO,2026,Junho,6,3
+48º BPM/M,2ª Cia - Lajeado,FURTO OUTROS,2026,Junho,6,84
+48º BPM/M,2ª Cia - Lajeado,FURTO VEÍCULO,2026,Junho,6,17
+48º BPM/M,2ª Cia - Lajeado,HOMICÍDIO DOLOSO,2026,Junho,6,0
+48º BPM/M,2ª Cia - Lajeado,ROUBO OUTROS,2026,Junho,6,55
+48º BPM/M,2ª Cia - Lajeado,ROUBO VEÍCULO,2026,Junho,6,8
+48º BPM/M,3ª Cia - Cohab Itaquera,FURTO OUTROS,2026,Junho,6,85
+48º BPM/M,3ª Cia - Cohab Itaquera,FURTO VEÍCULO,2026,Junho,6,15
+48º BPM/M,3ª Cia - Cohab Itaquera,HOMICÍDIO DOLOSO,2026,Junho,6,0
+48º BPM/M,3ª Cia - Cohab Itaquera,ROUBO OUTROS,2026,Junho,6,59
+48º BPM/M,3ª Cia - Cohab Itaquera,ROUBO VEÍCULO,2026,Junho,6,5
