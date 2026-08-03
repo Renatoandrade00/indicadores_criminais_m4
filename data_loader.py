@@ -9,19 +9,26 @@ from etl import run_etl
 @st.cache_data(ttl=3600)
 def load_data():
     """
-    Carrega os dados criminais.
+    Carrega os dados criminais consolidados.
     """
-    # Executa o processo de tratamento (ETL) local caso desenvolvedor atualize planilhas
-    try:
-        run_etl()
-    except Exception as e:
-        print(f"Erro ao executar ETL automático: {e}")
-        
     file_path = os.path.join("data", "dados_tratados.csv")
+    
+    # Se o arquivo não existir, executa o ETL para gerá-lo
+    if not os.path.exists(file_path):
+        try:
+            run_etl()
+        except Exception as e:
+            print(f"Erro ao executar ETL automático: {e}")
+            
     if not os.path.exists(file_path):
         return pd.DataFrame()
     
-    df = pd.read_csv(file_path)
+    # Garantir leitura em UTF-8 para evitar problemas de acentuação (ex: Março)
+    try:
+        df = pd.read_csv(file_path, encoding='utf-8')
+    except UnicodeDecodeError:
+        df = pd.read_csv(file_path, encoding='latin1')
+        
     return df
 
 def filter_data(df, dps, indicadores, ano, meses):

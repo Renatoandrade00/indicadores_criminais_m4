@@ -9,20 +9,33 @@ from data_loader import load_data
 
 st.set_page_config(page_title="Indicadores Criminais CPA/M-4", layout="wide", page_icon="🚓")
 
+MESES_PT = {
+    1: "Janeiro", 2: "Fevereiro", 3: "Março", 4: "Abril", 
+    5: "Maio", 6: "Junho", 7: "Julho", 8: "Agosto", 
+    9: "Setembro", 10: "Outubro", 11: "Novembro", 12: "Dezembro"
+}
+MESES_INT_MAP = {v: k for k, v in MESES_PT.items()}
+
 class DashboardData:
     """Encapsula as regras de negócio de manipulação de dados e filtros."""
     def __init__(self, df: pd.DataFrame):
         self.df = df
         
         if not self.df.empty:
+            # Garantir padronização do nome do mês caso venha com erro de encoding
+            self.df['MES'] = self.df['MES_INT'].map(MESES_PT).fillna(self.df['MES'])
             self.df = self.df.sort_values(by=['ANO', 'MES_INT'])
             self.anos_disponiveis = sorted(self.df['ANO'].unique().tolist())
-            self.meses_nomes = self.df['MES'].unique().tolist()
-            self.todos_indicadores = self.df['INDICADOR'].unique().tolist()
+            
+            # Meses únicos presentes no dataset ordenados numericamente (1 a 12)
+            meses_presentes = sorted(self.df['MES_INT'].unique().tolist())
+            self.meses_nomes = [MESES_PT[m] for m in meses_presentes if m in MESES_PT]
+            self.todos_indicadores = sorted(self.df['INDICADOR'].unique().tolist())
             
             self.ultimo_ano = self.df['ANO'].max()
-            self.ultimo_mes_int = self.df[self.df['ANO'] == self.ultimo_ano]['MES_INT'].max()
-            self.ultimo_mes_nome = self.df[(self.df['ANO'] == self.ultimo_ano) & (self.df['MES_INT'] == self.ultimo_mes_int)]['MES'].iloc[0]
+            df_ult_ano = self.df[self.df['ANO'] == self.ultimo_ano]
+            self.ultimo_mes_int = df_ult_ano['MES_INT'].max()
+            self.ultimo_mes_nome = MESES_PT.get(self.ultimo_mes_int, "Janeiro")
         else:
             self.anos_disponiveis = []
             self.meses_nomes = []
@@ -39,13 +52,18 @@ class DashboardData:
             return sorted([c for c in self.df['CIA'].unique() if c != "Desconhecido"])
         return sorted([c for c in self.df[self.df['BATALHAO'] == bpm]['CIA'].unique() if c != "Desconhecido"])
 
+    def get_meses_disponiveis(self, ano):
+        if self.df.empty or ano not in self.anos_disponiveis:
+            return [MESES_PT[i] for i in range(1, 13)]
+        df_ano = self.df[self.df['ANO'] == ano]
+        meses_ints = sorted(df_ano['MES_INT'].unique().tolist())
+        return [MESES_PT[m] for m in meses_ints if m in MESES_PT]
+
     def get_mes_int(self, mes_nome):
-        resultado = self.df[self.df['MES'] == mes_nome]['MES_INT']
-        return resultado.iloc[0] if not resultado.empty else 1
+        return MESES_INT_MAP.get(mes_nome, 1)
         
     def get_mes_nome(self, mes_int):
-        resultado = self.df[self.df['MES_INT'] == mes_int]['MES']
-        return resultado.iloc[0] if not resultado.empty else "Janeiro"
+        return MESES_PT.get(mes_int, "Janeiro")
 
     def filter_periodo(self, bpm, cias, inds, ano, mes):
         df_f = self.df.copy()
@@ -102,8 +120,17 @@ class FilterUI:
             idx_ano1 = self.data.anos_disponiveis.index(self.data.ultimo_ano) if self.data.ultimo_ano in self.data.anos_disponiveis else 0
             ano_1 = st.selectbox("Ano", self.data.anos_disponiveis, index=idx_ano1, key="ano1")
             
-            idx_mes1 = self.data.meses_nomes.index(self.data.ultimo_mes_nome) if self.data.ultimo_mes_nome in self.data.meses_nomes else 0
-            mes_1 = st.selectbox("Mês", self.data.meses_nomes, index=idx_mes1, key="mes1")
+            # Obter meses disponíveis para o ano selecionado
+            meses_disp_1 = self.data.get_meses_disponiveis(ano_1)
+            
+            # Definir o mês padrão (último disponível para o ano ou último da lista)
+            if ano_1 == self.data.ultimo_ano and self.data.ultimo_mes_nome in meses_disp_1:
+                default_mes1 = self.data.ultimo_mes_nome
+            else:
+                default_mes1 = meses_disp_1[-1] if meses_disp_1 else "Janeiro"
+                
+            idx_mes1 = meses_disp_1.index(default_mes1) if default_mes1 in meses_disp_1 else 0
+            mes_1 = st.selectbox("Mês", meses_disp_1, index=idx_mes1, key="mes1")
             mes_1_int = self.data.get_mes_int(mes_1)
 
             st.markdown("---")
@@ -134,7 +161,12 @@ class FilterUI:
             else:
                 idx_ano_ant = self.data.anos_disponiveis.index(ano_1 - 1) if (ano_1 - 1) in self.data.anos_disponiveis else 0
                 ano_2 = st.selectbox("Ano (Comparação)", self.data.anos_disponiveis, index=idx_ano_ant, key="ano2")
-                mes_2 = st.selectbox("Mês (Comparação)", self.data.meses_nomes, index=idx_mes1, key="mes2")
+                
+                meses_disp_2 = self.data.get_meses_disponiveis(ano_2)
+                default_mes2 = mes_1 if mes_1 in meses_disp_2 else (meses_disp_2[-1] if meses_disp_2 else "Janeiro")
+                idx_mes2 = meses_disp_2.index(default_mes2) if default_mes2 in meses_disp_2 else 0
+                
+                mes_2 = st.selectbox("Mês (Comparação)", meses_disp_2, index=idx_mes2, key="mes2")
                 mes_2_int = self.data.get_mes_int(mes_2)
 
         self.filters = {
