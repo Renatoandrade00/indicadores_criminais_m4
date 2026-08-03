@@ -499,8 +499,28 @@ class DashboardRenderer:
             st.warning("Apresentação em andamento... Clique em 'Parar Apresentação' para interromper.")
             
             placeholder = st.empty()
-            charts = []
             
+            # --- SLIDE 1: Tabela Resumo do Último Mês Disponível vs Mesmo Mês do Ano Anterior ---
+            ult_ano = self.data.ultimo_ano
+            ult_mes = self.data.ultimo_mes_nome
+            ano_ant = ult_ano - 1
+            
+            df_ult_atual = self.data.filter_periodo(self.f['bpm'], self.f['cias'], self.f['inds'], ult_ano, ult_mes)
+            df_ult_ant_ano = self.data.filter_periodo(self.f['bpm'], self.f['cias'], self.f['inds'], ano_ant, ult_mes)
+            
+            tit_ult_atual = f"{ult_mes[:3].upper()} {ult_ano}"
+            tit_ult_ant_ano = f"{ult_mes[:3].upper()} {ano_ant}"
+            
+            html_resumo = self._build_html_table(df_ult_atual, df_ult_ant_ano, tit_ult_atual, tit_ult_ant_ano)
+            
+            with placeholder.container():
+                st.markdown(f"### 📊 Comparativo do Último Mês ({ult_mes}/{ult_ano} vs {ult_mes}/{ano_ant})")
+                st.markdown(html_resumo, unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
+            time.sleep(12)
+            
+            # --- SLIDES SEGUINTES: Gráficos por Indicador ---
+            charts = []
             for ind in self.f['inds']:
                 df_cpa_1 = self.df_periodo1[self.df_periodo1['INDICADOR'] == ind].groupby("BATALHAO")["QUANTIDADE"].sum().reset_index()
                 df_cpa_2 = self.df_periodo2[self.df_periodo2['INDICADOR'] == ind].groupby("BATALHAO")["QUANTIDADE"].sum().reset_index()
@@ -531,11 +551,11 @@ class DashboardRenderer:
                         st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
                     time.sleep(12)
                     
-                with placeholder.container():
-                    st.components.v1.iframe("https://docs.google.com/presentation/d/1N8zFSOhrqIfUx3iJctHm7-5vmoLT2s9GmneNejiVz2U/embed?start=true&loop=true&delayms=3000", height=600, scrolling=False)
-                    st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
-                time.sleep(30)
-                st.rerun()
+            with placeholder.container():
+                st.components.v1.iframe("https://docs.google.com/presentation/d/1N8zFSOhrqIfUx3iJctHm7-5vmoLT2s9GmneNejiVz2U/embed?start=true&loop=true&delayms=3000", height=600, scrolling=False)
+                st.markdown("<p style='text-align: center; color: gray; margin-top: 20px;'>Desenvolvido por Renato Andrade</p>", unsafe_allow_html=True)
+            time.sleep(30)
+            st.rerun()
 
 class App:
     """Classe principal de orquestração do Dashboard."""
