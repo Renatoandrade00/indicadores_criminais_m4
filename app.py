@@ -203,8 +203,19 @@ class DashboardRenderer:
         self.df_periodo1 = self.data.filter_periodo(self.f['bpm'], self.f['cias'], self.f['inds'], self.f['ano_1'], self.f['mes_1'])
         self.df_periodo2 = self.data.filter_periodo(self.f['bpm'], self.f['cias'], self.f['inds'], self.f['ano_2'], self.f['mes_2'])
         
+        # Quando 'Mês Anterior' for selecionado, a tabela de Acumulado (esquerda) 
+        # deve comparar o acumulado até o mês atual vs o acumulado do mesmo mês no ano anterior.
+        if self.f['comparacao'] == "Mês Anterior":
+            self.ano_acum_2 = self.f['ano_1'] - 1
+            self.mes_acum_2_int = self.f['mes_1_int']
+            self.mes_acum_2_nome = self.f['mes_1']
+        else:
+            self.ano_acum_2 = self.f['ano_2']
+            self.mes_acum_2_int = self.f['mes_2_int']
+            self.mes_acum_2_nome = self.f['mes_2']
+
         self.df_acumulado_1 = self.data.filter_acumulado(self.f['bpm'], self.f['cias'], self.f['inds'], self.f['ano_1'], self.f['mes_1_int'])
-        self.df_acumulado_2 = self.data.filter_acumulado(self.f['bpm'], self.f['cias'], self.f['inds'], self.f['ano_2'], self.f['mes_2_int'])
+        self.df_acumulado_2 = self.data.filter_acumulado(self.f['bpm'], self.f['cias'], self.f['inds'], self.ano_acum_2, self.mes_acum_2_int)
         
         self.total_periodo1 = self.df_periodo1['QUANTIDADE'].sum() if not self.df_periodo1.empty else 0
         self.total_periodo2 = self.df_periodo2['QUANTIDADE'].sum() if not self.df_periodo2.empty else 0
@@ -301,7 +312,7 @@ class DashboardRenderer:
         with col_t1:
             st.markdown(f"**Acumulado até {self.f['mes_1']}**")
             tit_acum_1 = f"JAN a {self.f['mes_1'][:3].upper()} {str(self.f['ano_1'])[-2:]}"
-            tit_acum_2 = f"JAN a {self.f['mes_2'][:3].upper()} {str(self.f['ano_2'])[-2:]}"
+            tit_acum_2 = f"JAN a {self.mes_acum_2_nome[:3].upper()} {str(self.ano_acum_2)[-2:]}"
             st.markdown(self._build_html_table(self.df_acumulado_1, self.df_acumulado_2, tit_acum_1, tit_acum_2), unsafe_allow_html=True)
         with col_t2:
             st.markdown(f"**Mês Específico**")
