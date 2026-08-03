@@ -117,14 +117,21 @@ class FilterUI:
             
         with st.sidebar.expander("📅 Filtros de Período", expanded=True):
             st.markdown("**Período de Análise (Atual)**")
-            idx_ano1 = self.data.anos_disponiveis.index(self.data.ultimo_ano) if self.data.ultimo_ano in self.data.anos_disponiveis else 0
+            
+            curr_ano1 = st.session_state.get("ano1", self.data.ultimo_ano)
+            idx_ano1 = self.data.anos_disponiveis.index(curr_ano1) if curr_ano1 in self.data.anos_disponiveis else (
+                self.data.anos_disponiveis.index(self.data.ultimo_ano) if self.data.ultimo_ano in self.data.anos_disponiveis else 0
+            )
             ano_1 = st.selectbox("Ano", self.data.anos_disponiveis, index=idx_ano1, key="ano1")
             
             # Obter meses disponíveis para o ano selecionado
             meses_disp_1 = self.data.get_meses_disponiveis(ano_1)
             
-            # Definir o mês padrão (último disponível para o ano ou último da lista)
-            if ano_1 == self.data.ultimo_ano and self.data.ultimo_mes_nome in meses_disp_1:
+            # Preservar a escolha do usuário se válida para o ano selecionado
+            curr_mes1 = st.session_state.get("mes1", None)
+            if curr_mes1 and curr_mes1 in meses_disp_1:
+                default_mes1 = curr_mes1
+            elif ano_1 == self.data.ultimo_ano and self.data.ultimo_mes_nome in meses_disp_1:
                 default_mes1 = self.data.ultimo_mes_nome
             else:
                 default_mes1 = meses_disp_1[-1] if meses_disp_1 else "Janeiro"
@@ -159,11 +166,20 @@ class FilterUI:
                 st.info(f"Comparando com: {mes_2} / {ano_2}")
                 
             else:
-                idx_ano_ant = self.data.anos_disponiveis.index(ano_1 - 1) if (ano_1 - 1) in self.data.anos_disponiveis else 0
+                curr_ano2 = st.session_state.get("ano2", ano_1 - 1)
+                idx_ano_ant = self.data.anos_disponiveis.index(curr_ano2) if curr_ano2 in self.data.anos_disponiveis else (
+                    self.data.anos_disponiveis.index(ano_1 - 1) if (ano_1 - 1) in self.data.anos_disponiveis else 0
+                )
                 ano_2 = st.selectbox("Ano (Comparação)", self.data.anos_disponiveis, index=idx_ano_ant, key="ano2")
                 
                 meses_disp_2 = self.data.get_meses_disponiveis(ano_2)
-                default_mes2 = mes_1 if mes_1 in meses_disp_2 else (meses_disp_2[-1] if meses_disp_2 else "Janeiro")
+                curr_mes2 = st.session_state.get("mes2", None)
+                if curr_mes2 and curr_mes2 in meses_disp_2:
+                    default_mes2 = curr_mes2
+                elif mes_1 in meses_disp_2:
+                    default_mes2 = mes_1
+                else:
+                    default_mes2 = meses_disp_2[-1] if meses_disp_2 else "Janeiro"
                 idx_mes2 = meses_disp_2.index(default_mes2) if default_mes2 in meses_disp_2 else 0
                 
                 mes_2 = st.selectbox("Mês (Comparação)", meses_disp_2, index=idx_mes2, key="mes2")
