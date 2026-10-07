@@ -167,20 +167,42 @@ def run_etl():
         except Exception as e:
             print(f"Erro ao processar {f}: {e}")
 
-    if dfs_processados:
-        df_consolidado = pd.concat(dfs_processados, ignore_index=True)
+    out_path = os.path.join("data", "dados_tratados.csv")
+    df_existente = pd.DataFrame()
+    if os.path.exists(out_path):
+        try:
+            df_existente = pd.read_csv(out_path, encoding='utf-8')
+            print(f"Base histórica existente carregada: {len(df_existente)} registros.")
+        except Exception as e:
+            print(f"Aviso ao carregar dados existentes para merge: {e}")
+
+    if dfs_processados or not df_existente.empty:
+        lista_dfs = []
+        if not df_existente.empty:
+            lista_dfs.append(df_existente)
+        if dfs_processados:
+            lista_dfs.extend(dfs_processados)
+            
+        df_consolidado = pd.concat(lista_dfs, ignore_index=True)
         
+        # Garantir tipos corretos
+        df_consolidado['ANO'] = pd.to_numeric(df_consolidado['ANO'], errors='coerce').fillna(0).astype(int)
+        df_consolidado['MES_INT'] = pd.to_numeric(df_consolidado['MES_INT'], errors='coerce').fillna(0).astype(int)
+        df_consolidado['QUANTIDADE'] = pd.to_numeric(df_consolidado['QUANTIDADE'], errors='coerce').fillna(0).astype(int)
+        
+        # Padronizar nome do mês
+        df_consolidado['MES'] = df_consolidado['MES_INT'].apply(map_mes)
+        
+        # Atualizar registros mantendo a informação mais recente/máxima processada
         df_consolidado = df_consolidado.groupby(
             ['BATALHAO', 'CIA', 'INDICADOR', 'ANO', 'MES', 'MES_INT']
         )['QUANTIDADE'].max().reset_index()
         
-        df_consolidado = df_consolidado.sort_values(['ANO', 'MES_INT', 'BATALHAO', 'CIA'])
+        df_consolidado = df_consolidado.sort_values(['ANO', 'MES_INT', 'BATALHAO', 'CIA', 'INDICADOR'])
         
-        # Manter MES_INT para podermos ordenar facilmente e descobrir o mais recente
-        # Salvar o CSV final com MES_INT
-        out_path = os.path.join("data", "dados_tratados.csv")
+        # Salvar o CSV final consolidado
         df_consolidado.to_csv(out_path, index=False, encoding='utf-8')
-        print(f"SUCESSO! ETL concluído. Dados consolidados salvos em: {out_path}")
+        print(f"SUCESSO! ETL concluído. Total consolidado de {len(df_consolidado)} registros salvos em: {out_path}")
     else:
         print("Aviso: Nenhum dado válido foi processado.")
 
