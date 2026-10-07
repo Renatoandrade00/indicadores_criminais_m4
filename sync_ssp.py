@@ -138,7 +138,6 @@ def main():
             print(f"Erro durante execução do ETL: {e}")
     else:
         print("Nenhum arquivo novo para baixar. Base está atualizada.")
-        save_manifest(manifest)
 
 if __name__ == "__main__":
     main()
