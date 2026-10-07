@@ -61,6 +61,6 @@ def calculate_variation(current_value, previous_value):
     if previous_value == 0:
         if current_value == 0:
             return 0.0
-        return 100.0 # Crescimento infinito (de 0 para algo)
+        return current_value * 100.0
     
     return ((current_value - previous_value) / previous_value) * 100

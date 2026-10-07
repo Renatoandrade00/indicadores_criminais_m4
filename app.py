@@ -95,7 +95,7 @@ class DashboardData:
     @staticmethod
     def calculate_variation(current, prev):
         if prev == 0:
-            return 100.0 if current > 0 else 0.0
+            return (current * 100.0) if current > 0 else 0.0
         return ((current - prev) / prev) * 100
 
 
